@@ -1,0 +1,42 @@
+.change-btn {
+  background-color: var(--text-color);
+  width: 5em;
+  height: 3em;
+  border-radius: 1em;
+  font-size: 12px;
+  place-self: center;
+}
+.delete-btn {
+  background-color: var(--text-color);
+  width: 5em;
+  height: 3em;
+  border-radius: 1em;
+  font-size: 12px;
+  place-self: center;
+}
+.logout-btn {
+  background-color: var(--text-color);
+  width: 7em;
+  height: 2em;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  border-radius: 1em;
+}
+.layout-employee {
+  display: grid;
+  grid-template-rows: 1fr;
+  padding: 0.6em;
+  place-items: center;
+}
+
+.add-food-btn {
+  background-color: var(--text-color);
+  border-radius: 1em;
+  font-size: 16px;
+  place-self: center;
+  margin-top: 1.3em;
+  padding: 0.5em;
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: bold;
+}

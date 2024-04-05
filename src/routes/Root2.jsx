@@ -3,6 +3,7 @@ import "../css/Menu.css";
 import "../css/index.css";
 import "../css/login.css";
 import "../css/Checkout.css";
+import "../css/MenyEmployee.css";
 // <NavLink to="/"> Meny </NavLink>
 
 const Root = () => (

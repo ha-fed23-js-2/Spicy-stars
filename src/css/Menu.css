@@ -24,6 +24,7 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 1em;
+  background-color: #2a2929;
 }
 .meny-container > h2 {
   grid-column: span 2;
@@ -38,6 +39,7 @@ body {
   font-family: "Junge", cursive;
   font-weight: 400;
   font-style: normal;
+  text-align: left;
 }
 .description-food > p {
   margin-top: 0em;

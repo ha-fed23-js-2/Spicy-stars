@@ -4,6 +4,7 @@ import Root from "./Root2.jsx";
 import RenderMenyPage from "../components/RenderMenyPage.jsx";
 import LogIn from "../components/LogIn.jsx";
 import Checkout from "../components/Checkout.jsx";
+import MenyEmployee from "../components/MenyEmployee.jsx";
 
 const router = createHashRouter([
   {
@@ -16,7 +17,7 @@ const router = createHashRouter([
       },
       {
         path: "/meny-employee",
-        element: 2,
+        element: <MenyEmployee />,
       },
       {
         path: "/login",
