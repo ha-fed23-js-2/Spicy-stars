@@ -1,6 +1,8 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
-import "../Menu.css";
-import "../index.css";
+import "../css/Menu.css";
+import "../css/index.css";
+import "../css/login.css";
+import "../css/Checkout.css";
 // <NavLink to="/"> Meny </NavLink>
 
 const Root = () => (

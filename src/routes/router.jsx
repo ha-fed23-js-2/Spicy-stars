@@ -2,6 +2,8 @@ import { createHashRouter } from "react-router-dom";
 import RenderStartPage from "../components/StartPage.jsx";
 import Root from "./Root2.jsx";
 import RenderMenyPage from "../components/RenderMenyPage.jsx";
+import LogIn from "../components/LogIn.jsx";
+import Checkout from "../components/Checkout.jsx";
 
 const router = createHashRouter([
   {
@@ -18,11 +20,11 @@ const router = createHashRouter([
       },
       {
         path: "/login",
-        element: 3,
+        element: <LogIn />,
       },
       {
         path: "/checkout",
-        element: 4,
+        element: <Checkout />,
       },
       {
         path: "/",
