@@ -1,0 +1,102 @@
+:root {
+  --text-color: #ff9c06;
+}
+
+body {
+  align-items: center;
+}
+
+.menyFoodDiv {
+  align-items: center;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+}
+
+.meny-container {
+  border: 1px solid var(--text-color);
+  /* flex-wrap: wrap;
+  gap: 2em;
+  align-items: center; */
+  text-align: center;
+  /* margin-left: 3em; */
+  /* min-height: 30em;
+  max-height: 30em;
+  min-width: 30em;
+  max-width: 30em;*/
+  /* margin-bottom: 2em; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 1em;
+}
+.meny-container > h2 {
+  grid-column: span 2;
+  margin-top: 0em;
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.food-picture {
+  width: 125px;
+  /* width: 125px;
+  height: 125px; */
+  height: 125px;
+}
+
+.description-food {
+  font-family: "Junge", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.description-food > p {
+  margin-top: 0em;
+}
+.Price-btn {
+  display: flex;
+  justify-content: space-around;
+}
+.Price-btn > p {
+  /* margin-top: 0.5em; */
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.frontPicture {
+  display: flex;
+  background-repeat: no-repeat;
+  min-height: 10px;
+  min-width: 100px;
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: var(--text-color);
+}
+
+p {
+  color: var(--text-color);
+}
+.strength-section {
+  color: var(--text-color);
+  display: flex;
+  /* justify-content: center; */
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.add-btn {
+  background-color: var(--text-color);
+  /* padding: 0.4em; */
+  /* margin-left: 1em; */
+  width: 6.4em;
+  height: 2em;
+  border-radius: 1em;
+  font-family: "Julius Sans One", sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  place-self: center;
+}
