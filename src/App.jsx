@@ -14,9 +14,10 @@ function App() {
     <>
 	<div> 
 	<MyPicture/>
+	 <Menu /> 
 	</div>
    <div className='foodMenu'> 
-   <Menu /> 
+  
    </div>
    <div className='form-div'> 
    <Form/>
