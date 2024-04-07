@@ -1,9 +1,9 @@
 
 import React from 'react'
 
-const ButtonFunction =({TakeAway}) => {
+const ButtonFunction =({onClick}) => {
 	return (
-	<button className="delete-btn" onClick={TakeAway}> Ta bort </button>
+	<button className="delete-btn" onClick={onClick}> Ta bort </button>
 	)
 }
 
