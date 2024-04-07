@@ -1,9 +1,15 @@
 import Menu from "../data/lista";
 import { useState } from "react";
 import PepparPicture from "../components/pepparimage";
+import ButtonFunction from "./ButtonFunction";
 
 const MenyEmployee = () => {
   const [menuFood, setMenuFood] = useState(Menu);
+
+  const handleDeleteBtn =(id) =>{
+	const DeleteFood = menuFood.filter(mat => mat.id !==id)
+	setMenuFood(DeleteFood)
+  }
   return (
     <main>
       <button className="logout-btn"> Logga ut</button>
@@ -27,7 +33,8 @@ const MenyEmployee = () => {
               <div className="Price-btn">
                 <p>Pris: {mat.price}Kr</p>
                 <button className="change-btn"> Ändra</button>
-                <button className="delete-btn">Ta Bort</button>
+
+                <ButtonFunction onClick={() => handleDeleteBtn(mat.id)}/>
               </div>
             </div>
           ))}
