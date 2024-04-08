@@ -28,7 +28,7 @@ const MenyEmployee = () => {
               <img src={mat.image} alt={mat.name} className="food-picture" />
               <div className="description-food">
                 <p>{mat.description}</p>
-                <p>Ingredienser: {mat.ingredients.join(", ")}</p>
+                <p>Ingredienser: {mat.ingredients}</p>
               </div>
               <div className="strength-section">
                 {PepparPicture()} {mat.strength}

@@ -40,3 +40,6 @@
   font-family: "Julius Sans One", sans-serif;
   font-weight: bold;
 }
+.change-btnAlt {
+  display: hidden;
+}
