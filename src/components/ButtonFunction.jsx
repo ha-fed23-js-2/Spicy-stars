@@ -1,11 +1,24 @@
-// Ta bort maträtt från listan
-import React from 'react'
 
-const ButtonFunction =({onClick}) => {
-	return (
-	<button className="delete-btn" onClick={onClick}> Ta bort </button>
+import React from 'react'
+import { useVariablesStore } from '../data/store'
+
+
+
+
+const HandleDeleteBtn =({id}) => {
+	
+	
+	const deleteMenyItem = useVariablesStore(state => state.deleteMenyItem)
+	const handleClick =() =>{
+		console.log('klickas på', HandleDeleteBtn)
+		
+		deleteMenyItem(id)
+	  }
+	
+		
+		return (
+	<button className="delete-btn" onClick={handleClick}> Ta bort </button>
 	)
 }
 
-export default ButtonFunction;
-
+export default HandleDeleteBtn

@@ -15,7 +15,8 @@ const RenderStartPage = () => {
             </p>
           </div>
           <p className="phone">Tele: 0202-020202 </p>
-          <button className="meny-btn">Meny</button>
+          <button className="meny-btn">Meny</button> 
+          {/* TODO: Add NavLink to btn (meny) */}
         </div>
       </main>
       <footer>

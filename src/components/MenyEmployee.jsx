@@ -1,15 +1,18 @@
 import Menu from "../data/lista";
 import { useState } from "react";
 import PepparPicture from "../components/pepparimage";
-import ButtonFunction from "./ButtonFunction";
+// import ButtonFunction from "./ButtonFunction";
+import {useVariablesStore} from "../data/store.js"
+import HandleDeleteBtn  from "./ButtonFunction";
 
 const MenyEmployee = () => {
-  const [menuFood, setMenuFood] = useState(Menu);
+  // const [menuFood, setMenuFood] = useState(Menu);
+  const menuFood = useVariablesStore(state => state.MenuFood)
 
-  const handleDeleteBtn =(id) =>{
-	const DeleteFood = menuFood.filter(mat => mat.id !==id)
-	setMenuFood(DeleteFood)
-  }
+  // const handleDeleteBtn =(id) =>{
+	// const DeleteFood = menuFood.filter(mat => mat.id !==id)
+	// setMenuFood(DeleteFood)
+  // }
   return (
     <main>
       <button className="logout-btn"> Logga ut</button>
@@ -33,8 +36,7 @@ const MenyEmployee = () => {
               <div className="Price-btn">
                 <p>Pris: {mat.price}Kr</p>
                 <button className="change-btn"> Ändra</button>
-
-                <ButtonFunction onClick={() => handleDeleteBtn(mat.id)}/>
+                <HandleDeleteBtn id={mat.id} />
               </div>
             </div>
           ))}
