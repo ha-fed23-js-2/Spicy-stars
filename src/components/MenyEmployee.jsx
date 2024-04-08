@@ -4,7 +4,7 @@ import PepparPicture from "../components/pepparimage";
 // import ButtonFunction from "./ButtonFunction";
 import {useVariablesStore} from "../data/store.js"
 import HandleDeleteBtn  from "./ButtonFunction";
-
+import HandleChange from "./ChangeButton.jsx";
 const MenyEmployee = () => {
   // const [menuFood, setMenuFood] = useState(Menu);
   const menuFood = useVariablesStore(state => state.MenuFood)
@@ -35,7 +35,8 @@ const MenyEmployee = () => {
               </div>
               <div className="Price-btn">
                 <p>Pris: {mat.price}Kr</p>
-                <button className="change-btn"> Ändra</button>
+                <HandleChange id={mat.id} name={mat.name} ingredients={mat.ingredients} description={mat.description} strength={mat.strength} type={mat.type} price={mat.price} image={mat.image}/> 
+                {/* <button className="change-btn"> Ändra</button> */}
                 <HandleDeleteBtn id={mat.id} />
               </div>
             </div>
@@ -43,7 +44,8 @@ const MenyEmployee = () => {
         </section>
         <button className="add-food-btn">Lägg till ny maträtt</button>
         <section className="Form-section">
-          <div className="Form-checkout">
+			
+          {/* <div className="Form-checkout">
             <label> Bild länk</label>
             <input type="text"></input>
             <label> Namn maträtt </label>
@@ -57,7 +59,7 @@ const MenyEmployee = () => {
             <label> Styrka </label>
             <input type="text"></input>
           </div>
-          <button>Spara</button>
+          <button>Spara</button> */}
         </section>
       </div>
     </main>

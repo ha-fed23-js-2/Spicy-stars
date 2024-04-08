@@ -10,7 +10,7 @@ const HandleDeleteBtn =({id}) => {
 	
 	const deleteMenyItem = useVariablesStore(state => state.deleteMenyItem)
 	const handleClick =() =>{
-		console.log('klickas på', HandleDeleteBtn)
+
 		
 		deleteMenyItem(id)
 	  }
