@@ -1,4 +1,4 @@
-
+// Ta bort maträtt från listan
 import React from 'react'
 
 const ButtonFunction =({onClick}) => {
