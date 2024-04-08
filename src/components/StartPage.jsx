@@ -1,5 +1,5 @@
 import framsidabild from "../data/framsidabild.png";
-
+import { NavLink } from "react-router-dom"
 const RenderStartPage = () => {
   return (
     <>
@@ -15,7 +15,7 @@ const RenderStartPage = () => {
             </p>
           </div>
           <p className="phone">Tele: 0202-020202 </p>
-          <button className="meny-btn">Meny</button> 
+          <button className="meny-btn"><NavLink to="/meny"> Meny </NavLink> </button>
           {/* TODO: Add NavLink to btn (meny) */}
         </div>
       </main>
