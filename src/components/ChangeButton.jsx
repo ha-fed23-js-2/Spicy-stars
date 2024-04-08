@@ -1,5 +1,6 @@
 import { useVariablesStore } from "../data/store"
 import { useState } from "react"
+import "../css/MenyEmployee.css";
 
 const HandleChange = ({id, name, ingredients, description, strength, type, price, image}) =>{
     const [formValues, setFormValues] = useState({

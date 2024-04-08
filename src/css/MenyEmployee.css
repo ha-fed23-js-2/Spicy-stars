@@ -41,5 +41,6 @@
   font-weight: bold;
 }
 .change-btnAlt {
-  display: hidden;
+  /* display: hidden; */
+  visibility: hidden;
 }
