@@ -5,6 +5,13 @@ main {
   font-family: "Julius Sans One", sans-serif;
   font-weight: 300;
   font-style: normal;
+  /* height: 80vh; */
+}
+.cart{
+	height: 30px;
+	position: absolute;
+	top: 15px ;
+	right: 15px;
 }
 body {
   align-items: center;

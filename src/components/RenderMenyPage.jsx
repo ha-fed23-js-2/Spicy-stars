@@ -1,12 +1,14 @@
 import Menu from "../data/lista";
 import { useState } from "react";
 import PepparPicture from "../components/pepparimage";
-
+import cart from "../data/cart.png"
 const RenderMenyPage = () => {
   const [menuFood, setMenuFood] = useState(Menu);
   return (
+
     <main>
       <h2>MENY</h2>
+	  <img className="cart" src={cart} alt="" />
       <section className="menyFoodDiv">
         {menuFood.map((mat, index) => (
           <div key={index} className="meny-container">

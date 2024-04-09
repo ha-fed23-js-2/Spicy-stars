@@ -5,6 +5,7 @@ import "../css/login.css";
 import "../css/Checkout.css";
 import "../css/MenyEmployee.css";
 // <NavLink to="/"> Meny </NavLink>
+import profil from "../data/profil.png"
 
 const Root = () => (
   <>
@@ -12,9 +13,10 @@ const Root = () => (
       <h1>Spicy Food </h1>
     </header>
     <Outlet />
-    {/* <footer>
+    <footer>
       <p>Mejl: Spicy.Stars@gmail.se</p>
-    </footer> */}
+	  <img src={profil} alt="profilbild" />
+    </footer>
   </>
 );
 

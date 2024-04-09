@@ -19,9 +19,7 @@ const RenderStartPage = () => {
           {/* TODO: Add NavLink to btn (meny) */}
         </div>
       </main>
-      <footer>
-        <p>Mejl: Spicy.Stars@gmail.se</p>
-      </footer>
+     
     </>
   );
 };
