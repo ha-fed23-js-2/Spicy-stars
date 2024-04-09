@@ -1,6 +1,7 @@
 import { useVariablesStore } from "../data/store"
 import { useState } from "react"
 import "../css/MenyEmployee.css";
+import { saveToApi, loadFromApi } from "../data/api";
 
 const HandleChange = ({id, name, ingredients, description, strength, type, price, image}) =>{
     const [formValues, setFormValues] = useState({
@@ -39,7 +40,7 @@ const HandleChange = ({id, name, ingredients, description, strength, type, price
             [name]: value
         }));
     };
-
+	
     return (
         <div className="change-btn-container">
             <button className={`${showButton ? 'change-btnAlt' : 'change-btn'}`} onClick={toggleForm}>Ändra</button>
