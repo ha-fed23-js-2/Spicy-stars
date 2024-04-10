@@ -36,3 +36,6 @@ input {
   font-family: "Julius Sans One", sans-serif;
   font-weight: bold;
 }
+.error-msg {
+	color: red;
+}

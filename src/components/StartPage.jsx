@@ -1,5 +1,7 @@
 import framsidabild from "../data/framsidabild.png";
 import { NavLink } from "react-router-dom"
+import { handleAPI } from "../data/api";
+
 const RenderStartPage = () => {
   return (
     <>
@@ -16,7 +18,7 @@ const RenderStartPage = () => {
           </div>
           <p className="phone">Tele: 0202-020202 </p>
           <button className="meny-btn"><NavLink to="/meny"> Meny </NavLink> </button>
-          {/* TODO: Add NavLink to btn (meny) */}
+          {/* TODO: Add NavLink to btn (meny)onClick={handleAPI} */}
         </div>
       </main>
      

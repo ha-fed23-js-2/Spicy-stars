@@ -38,7 +38,7 @@ const navigate = useNavigate();
 		return
 	}
 if (password !=="mums"){
-		console.log("felaktigt lösenord")
+		setPasswordError("felaktigt lösenord")
 		return;
 	}
 
@@ -62,6 +62,7 @@ if (LoggedIn){
           onBlur={() => setEmailError(true)}
           type="text"
         />
+        {emailError && <span className="error-msg">{emailError} </span>}
       </section>
 
       <section className="form-Info">
@@ -72,6 +73,7 @@ if (LoggedIn){
           onBlur={() => setPasswordError(true)}
           type="password"
         />
+        {passwordError && <span className="error-msg">{passwordError} </span>}
       </section>
 
       <button

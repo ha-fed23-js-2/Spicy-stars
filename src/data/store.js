@@ -1,8 +1,12 @@
 import {create} from 'zustand'
-import Menu from './lista'
+import { saveToApi } from './api';
+ //import Menu from './lista'
+// import { handleAPI } from './api';
+
+
 
 const useVariablesStore = create(set => ({
-    MenuFood: Menu,
+    MenuFood: [],
     CheckoutMeny: [],
     CheckoutTotal: 0, // Gör så att den tar checkoutMeny.price och adderar för alla object som ligger där. 
 
@@ -10,7 +14,14 @@ const useVariablesStore = create(set => ({
     AddNewMenuItem: [], // lägga in värderna, till menu(listan)
     activeInput: false,
 
-    
+	// setMenyFood: () => set(state => ({
+	// 	MenuFood: handleAPI
+	// })),
+	setMenuFood: (result) => set( ({
+		MenuFood: result
+	})),
+	// ApiMenuFood: (result) => set({ MenuFood: result }),
+
     deleteMenyItem: (id) => set(state => ({
         MenuFood: state.MenuFood.filter(mat => mat.id !== id)
        
@@ -20,12 +31,20 @@ const useVariablesStore = create(set => ({
      changeMenuItemUppdate: (id, newData) => set(state => ({
         MenuFood: state.MenuFood.map(item => {
             if (item.id === id) {
-                return { ...item, ...newData };
+				
+                return { ...item, ...newData } ;
             }
+            // console.log(state.MenuFood);
+			// saveToApi(state.MenuFood)
+			
              return item;
+
          }),
+        
+		 
            
     }))
+    
 
 }))
 

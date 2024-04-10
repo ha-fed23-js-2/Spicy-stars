@@ -64,6 +64,9 @@ footer {
 footer > img {
 	width: 40px;
 }
+.profilsize{
+	width:40px;
+}
 .adress {
   margin-bottom: 0;
   margin-top: 0.3em;

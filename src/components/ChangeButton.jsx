@@ -1,7 +1,9 @@
 import { useVariablesStore } from "../data/store"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import "../css/MenyEmployee.css";
-import { saveToApi, loadFromApi } from "../data/api";
+import { saveToApi } from "../data/api";
+// import { saveToApi, loadFromApi, saveOriginal } from "../data/api";
+
 
 const HandleChange = ({id, name, ingredients, description, strength, type, price, image}) =>{
     const [formValues, setFormValues] = useState({
@@ -13,6 +15,13 @@ const HandleChange = ({id, name, ingredients, description, strength, type, price
         type: type,
         image: image
     });
+    
+ 
+      const {menuFood, setMenuFood } = useVariablesStore (state => ({menuFood: state.MenuFood, setMenuFood: state.setMenuFood}))
+
+ 
+
+
     const [showForm, setShowForm] = useState(false);
 	const [showButton, setShowButton] = useState(false);
 
@@ -25,10 +34,19 @@ const HandleChange = ({id, name, ingredients, description, strength, type, price
     const changeObj = (newValues) => {
         const updatedValues = { ...formValues, ...newValues };
         changeMenyItemUpdate(id, updatedValues);
+        
     };
-
+    
+    useEffect (() => {
+        async function nisse(){
+          saveToApi(menuFood)
+        }
+          nisse()
+      },[menuFood])
+    
     const handleChangeClick = () => {
         changeObj(formValues);
+       
         setShowForm(false)
         setShowButton(false)
     };
@@ -61,6 +79,7 @@ const HandleChange = ({id, name, ingredients, description, strength, type, price
                     <label>Bildlänk</label>
                     <input type="text" name="image" value={formValues.image} onChange={handleChange} />
                     <button onClick={handleChangeClick}>Spara</button>
+                    {/* <button onClick={saveOriginalToApi}>Spara</button> */}
                 </div>
             )}
         </div>

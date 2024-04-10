@@ -13,6 +13,8 @@ const MenyEmployee = () => {
 	// const DeleteFood = menuFood.filter(mat => mat.id !==id)
 	// setMenuFood(DeleteFood)
   // }
+
+
   return (
     <main>
       <button className="logout-btn"> Logga ut</button>

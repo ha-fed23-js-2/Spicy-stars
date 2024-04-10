@@ -4,7 +4,7 @@
 const Menu = [
   {
     name: "Kyckling Vindaloo",
-    ingredients: ["Kyckling", "lök", "vitlök", "ingefära", "vinäger"],
+    ingredients: "Kyckling, lök, vitlök, ingefära, vinäger",
     description: "En indisk rätt med kyckling serveras med ris",
     strength: "4",
     type: "kyckling",
@@ -16,7 +16,7 @@ const Menu = [
   {
     name: "Aloo Gobi",
     type: "Vegetarisk",
-    ingredients: ["Potatis", "blomkål", "lök", "tomater", "vitlök"],
+    ingredients: "Potatis, blomkål, lök, tomater, vitlök",
     description: "En indisk rätt med potatis och blomkål",
     strength: "2",
     price: "99",
@@ -26,7 +26,7 @@ const Menu = [
   },
   {
     name: "Lamm Vindaloo",
-    ingredients: ["Lammkött", "vinäger", "lök", "vitlök", "ingefära"],
+    ingredients: "Lammkött, vinäger, lök, vitlök, ingefära",
     description: "En kryddig och smakrik lammgryta",
     strength: "5",
     price: "119",
@@ -38,7 +38,7 @@ const Menu = [
   {
     name: "Szechuan Stir-Fry",
     type: "Vegansk",
-    ingredients: ["broccoli", "paprika", "lök", "ingefära"],
+    ingredients: "broccoli, paprika, lök, ingefära",
     description: "En kinesisk klassiker",
     strength: "4",
     price: "109",
@@ -49,7 +49,7 @@ const Menu = [
   {
     name: "Aloo Baingan",
     type: "Vegansk",
-    ingredients: ["Potatis", "aubergine", "lök", "tomat", "ingefära"],
+    ingredients: "Potatis, aubergine, lök, tomat, ingefära",
     description: "En kryddig och smakrik lammgryta",
     strength: "3",
     price: "99",

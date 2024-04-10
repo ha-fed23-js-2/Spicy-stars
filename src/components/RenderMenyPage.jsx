@@ -1,9 +1,26 @@
-import Menu from "../data/lista";
-import { useState } from "react";
+// import Menu from "../data/lista";
+// import { useState } from "react";
+import { useEffect } from "react";
 import PepparPicture from "../components/pepparimage";
 import cart from "../data/cart.png"
+import { useVariablesStore } from "../data/store";
+import { loadFromApi, saveToApi } from "../data/api";
+// import { handleAPI } from "../data/api";
 const RenderMenyPage = () => {
-  const [menuFood, setMenuFood] = useState(Menu);
+  const {menuFood, setMenuFood } = useVariablesStore (state => ({menuFood: state.MenuFood, setMenuFood: state.setMenuFood}))
+ 
+  // console.log(menuFood);
+  useEffect (() => {
+    async function nisse(){
+      const result = await loadFromApi()
+      setMenuFood(result)
+    }
+      nisse()
+  },[]) // Kör load, spara datan i store. 
+  
+
+  // const [menuFood, setMenuFood] = useState(Menu);
+
   return (
 
     <main>
@@ -18,7 +35,7 @@ const RenderMenyPage = () => {
             <img src={mat.image} alt={mat.name} className="food-picture" />
             <div className="description-food">
               <p>{mat.description}</p>
-              <p>Ingredienser: {mat.ingredients.join(", ")}</p>
+              <p>Ingredienser: {mat.ingredients}</p>
             </div>
             <div className="strength-section">
               {PepparPicture()} {mat.strength}
