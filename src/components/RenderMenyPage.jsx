@@ -16,6 +16,14 @@ const RenderMenyPage = () => {
       nisse()
   },[]) 
 
+  const generatePeppers = (strength) => {
+    const peppers = [];
+    for (let i = 0; i < strength; i++) {
+      peppers.push(<PepparPicture key={i} />);
+    }
+    return peppers;
+  };
+
 
 
   return (
@@ -35,7 +43,7 @@ const RenderMenyPage = () => {
               <p>Ingredienser: {mat.ingredients}</p>
             </div>
             <div className="strength-section">
-              {PepparPicture()} {mat.strength}
+              {generatePeppers(mat.strength)}
             </div>
             <div className="Price-btn">
               <p>Pris: {mat.price}Kr</p>
