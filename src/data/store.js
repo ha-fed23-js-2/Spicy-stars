@@ -15,12 +15,18 @@ const useVariablesStore = create((set) => ({
 	activeInput: false,
 
 	addToCheckout: (item) => {
-		console.log('Adding item to checkout:', item);
-		set((state) => ({
-			...state,
-			Checkout: [...state.Checkout, item],
-		}));
-		useVariablesStore.getState().calculateCheckoutTotal(); // Call calculateCheckoutTotal after adding item
+		set((state) => {
+			const existingItemIndex = state.Checkout.findIndex((checkoutItem) => checkoutItem.id === item.id);
+			if (existingItemIndex !== -1) {
+				const updatedCheckout = [...state.Checkout];
+				updatedCheckout[existingItemIndex].quantity += 1;
+				return { ...state, Checkout: updatedCheckout };
+			} else {
+				return { ...state, Checkout: [...state.Checkout, { ...item, quantity: 1 }] };
+			}
+		});
+		useVariablesStore.getState().calculateCheckoutTotal();
+
 	},
 
 	removeFromCheckout: (id) => {
@@ -29,7 +35,7 @@ const useVariablesStore = create((set) => ({
 			...state,
 			Checkout: state.Checkout.filter((item) => item.id !== id),
 		}));
-		useVariablesStore.getState().calculateCheckoutTotal(); // Call calculateCheckoutTotal after removing item
+		useVariablesStore.getState().calculateCheckoutTotal();
 	},
 
 	calculateCheckoutTotal: () => {

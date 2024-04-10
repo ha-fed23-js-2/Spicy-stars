@@ -2,13 +2,8 @@ import React from 'react';
 import { useVariablesStore } from '../data/store.js';
 
 const Checkout = () => {
-	const { Checkout, CheckoutTotal, removeFromCheckout, addToCheckout } = useVariablesStore(); // Destructure correctly with capital "C"
+	const { Checkout, CheckoutTotal, removeFromCheckout } = useVariablesStore(); // Destructure correctly with capital "C"
 	console.log('Checkout:', Checkout);
-	const handleAddToCheckout = (item) => {
-		console.log('Adding item to checkout:', item);
-		addToCheckout(item);
-	};
-
 	return (
 		<main>
 			<div className="checkout">
@@ -18,11 +13,11 @@ const Checkout = () => {
 							<h3>{item.name}</h3>
 							<img src={item.image} alt={item.name} />
 							<p>{item.price} KR</p>
+							<p>Antal: {item.quantity}</p>
 							<button onClick={() => removeFromCheckout(item.id)}>Ta bort</button>
-							<p className="centeredP">Antal</p>
 						</div>
 					))}
-					<p>Summa: {CheckoutTotal} KR</p> {/* Correct variable name to CheckoutTotal */}
+					<p>Summa: {CheckoutTotal} KR</p>
 				</section>
 				<section className="Form-section">
 					<div className="Form-checkout">
