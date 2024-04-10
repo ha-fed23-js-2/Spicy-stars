@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { useVariablesStore } from '../data/store'
-// import { useEffect } from 'react'
+import { useEffect } from 'react'
 import { saveToApi } from '../data/api'
 
 
@@ -14,10 +14,11 @@ const HandleDeleteBtn =({id}) => {
 		console.log("clicked");
 		deleteMenyItem(id)
 		saveToApi(menuFood);
-	  }
-	
-		return (
-	<button className="delete-btn" onClick={handleClick}> Ta bort </button>
+	}
+
+
+	return (
+		<button className="delete-btn" onClick={handleClick}> Ta bort </button>
 	)
 }
 

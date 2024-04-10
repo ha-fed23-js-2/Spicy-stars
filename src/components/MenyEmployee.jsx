@@ -1,6 +1,7 @@
 
+import { NavLink } from "react-router-dom";
 import PepparPicture from "../components/pepparimage";
-
+import { saveToApi } from "../data/api.js";
 import {useVariablesStore} from "../data/store.js"
 import HandleDeleteBtn  from "./ButtonFunction";
 import HandleChange from "./ChangeButton.jsx";
@@ -11,7 +12,8 @@ const MenyEmployee = () => {
 
   return (
     <main>
-      <button className="logout-btn"> Logga ut</button>
+     <button className="logout-btn"><NavLink to="/meny"> Logga ut </NavLink></button>
+    
 
       <h2>MENY</h2>
       <div className="layout-employee">
@@ -39,6 +41,7 @@ const MenyEmployee = () => {
           ))}
         </section>
         <button className="add-food-btn">Lägg till ny maträtt</button>
+        {/* <button className="add-food-btn" onClick={() => saveToApi(menuFood)}>SPARA ÄNDRINGAR</button> */}
         <section className="Form-section">
 			
           {/* <div className="Form-checkout">

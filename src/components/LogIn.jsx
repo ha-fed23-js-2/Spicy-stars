@@ -1,13 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import ValidationInlog from "../data/storeLogInZ";
-
+import { loadFromApi } from "../data/api";
+import { useVariablesStore } from "../data/store";
 const LogIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [emailError,setEmailError] = useState("")
+  const {menuFood, setMenuFood } = useVariablesStore (state => ({menuFood: state.MenuFood, setMenuFood: state.setMenuFood}))
+ 
 
+  useEffect (() => {
+    async function nisse(){
+      const result = await loadFromApi()
+      setMenuFood(result)
+    }
+      nisse()
+  },[]) 
   const isValidEmail = (email) => {
     return email.length > 0 && email.includes("@");
   };
