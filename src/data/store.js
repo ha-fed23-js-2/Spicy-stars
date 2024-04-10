@@ -1,37 +1,60 @@
-import {create} from 'zustand'
-import Menu from './lista'
+import { create } from 'zustand';
+import Menu from './lista';
 
+const useVariablesStore = create((set) => ({
+	MenuFood: Menu,
+	CheckoutMeny: [],
+	Checkout: [],
+	CheckoutTotal: 0,
+	email: "",
+	emailFilled: false,
+	password: "",
+	passwordFilled: false,
+	ChangeMenuItem: [],
+	AddNewMenuItem: [],
+	activeInput: false,
 
-const useVariablesStore = create(set => ({
-    MenuFood: Menu,
+	addToCheckout: (item) => {
+		console.log('Adding item to checkout:', item);
+		set((state) => ({
+			...state,
+			Checkout: [...state.Checkout, item],
+		}));
+		useVariablesStore.getState().calculateCheckoutTotal(); // Call calculateCheckoutTotal after adding item
+	},
 
-    CheckoutMeny: [],
-    CheckoutTotal: 0, // Gör så att den tar checkoutMeny.price och adderar för alla object som ligger där. 
-    email: "",
-    emailFilled: false,
-    password: "",
-    passwordFilled: false, 
+	removeFromCheckout: (id) => {
+		console.log('Removing item from checkout with ID:', id);
+		set((state) => ({
+			...state,
+			Checkout: state.Checkout.filter((item) => item.id !== id),
+		}));
+		useVariablesStore.getState().calculateCheckoutTotal(); // Call calculateCheckoutTotal after removing item
+	},
 
-    ChangeMenuItem: [], //Gör så den innehåller det aktuella objectet (fyller i form med värderna)
-    AddNewMenuItem: [], // lägga in värderna, till menu(listan)
-    activeInput: false,
-    
-    deleteMenyItem: (id) => set(state => ({
-        MenuFood: state.MenuFood.filter(mat => mat.id !== id)
-       
-    })),
+	calculateCheckoutTotal: () => {
+		console.log('Calculating checkout total');
+		set((state) => ({
+			CheckoutTotal: state.Checkout.reduce((total, item) => total + parseInt(item.price), 0),
+		}));
+	},
 
+	deleteMenyItem: (id) => {
+		set((state) => ({
+			MenuFood: state.MenuFood.filter((mat) => mat.id !== id),
+		}));
+	},
 
-     changeMenuItemUppdate: (id, newData) => set(state => ({
-        MenuFood: state.MenuFood.map(item => {
-            if (item.id === id) {
-                return { ...item, ...newData };
-            }
-             return item;
-         }),
-           
-    }))
+	changeMenuItemUpdate: (id, newData) => {
+		set((state) => ({
+			MenuFood: state.MenuFood.map((item) => {
+				if (item.id === id) {
+					return { ...item, ...newData };
+				}
+				return item;
+			}),
+		}));
+	},
+}));
 
-}))
-
-export {useVariablesStore}
+export { useVariablesStore };
