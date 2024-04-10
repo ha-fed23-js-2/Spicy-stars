@@ -7,6 +7,7 @@ import "../css/MenyEmployee.css";
 // <NavLink to="/"> Meny </NavLink>
 import profil from "../data/profil.png"
 
+
 const Root = () => (
   <>
     <header>
@@ -15,7 +16,8 @@ const Root = () => (
     <Outlet />
     <footer>
       <p>Mejl: Spicy.Stars@gmail.se</p>
-	  <img src={profil} alt="profilbild" />
+	  <NavLink to="/login"> <img src={profil} alt="profilbild" />
+	  </NavLink> 
     </footer>
   </>
 );

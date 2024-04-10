@@ -1,30 +1,56 @@
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import ValidationInlog from "../data/storeLogInZ";
 
 const LogIn = () => {
   const [email, setEmail] = useState("");
-  const [emailFilled, setEmailFilled] = useState(false);
   const [password, setPassword] = useState("");
-  const [passwordFilled, setPasswordFilled] = useState(false);
+  const [passwordError, setPasswordError] = useState("");
+  const [emailError,setEmailError] = useState("")
 
   const isValidEmail = (email) => {
     return email.length > 0 && email.includes("@");
   };
-  // email kan inte vara tom, behöver vara ifylld
-  const isFormValid = emailFilled && passwordFilled && isValidEmail(email);
+ 
+  const isFormValid = () =>{ 
+   let isValid = true
+  
+  if (!isValidEmail(email)){
+	setEmailError("felaktig Email")
+	isValid = false
+  }else {
+	setEmailError("")
+  }
+
+  if (password === ""){
+	setPasswordError("Felaktigt lösenord")
+	isValid = false
+  } else{
+	setPasswordError("")
+  }
+  return isValid;
+  }
+const navigate = useNavigate();
 
   const handleLogIn = () => {
-    if (isFormValid) {
-      const formData = {
-        email,
-        password: "mums",
-      };
-      console.log("Data from form: ", formData);
-      // Skicka datan dit den ska användas
-      // Lifting state, Zustand, eller skicka till ett API
-    } else {
-      console.log("Formuläret är inte utfört korrekt");
-    }
-  };
+    if (!isFormValid()) {
+		console.log("formuläret är inte utfört korrekt")
+		return
+	}
+if (password !=="mums"){
+		console.log("felaktigt lösenord")
+		return;
+	}
+
+const LoggedIn= ValidationInlog.getState().login(email,password)
+if (LoggedIn){
+	console.log ("lyckades med inloggning")
+	 navigate('/meny-employee')
+} else {
+	console.log("fel med email eller lösenord")
+}
+  }
+
 
   return (
     <main className="form">
@@ -33,7 +59,7 @@ const LogIn = () => {
         <input
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          onBlur={() => setEmailFilled(true)}
+          onBlur={() => setEmailError(true)}
           type="text"
         />
       </section>
@@ -43,7 +69,7 @@ const LogIn = () => {
         <input
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          onBlur={() => setPasswordFilled(true)}
+          onBlur={() => setPasswordError(true)}
           type="password"
         />
       </section>
@@ -55,8 +81,9 @@ const LogIn = () => {
         Logga in
       </button>
     </main>
-    // Gör protected routes
+   
   );
-};
+}
 
-export default LogIn;
+
+export default LogIn; 

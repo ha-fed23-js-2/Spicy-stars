@@ -5,6 +5,7 @@ import RenderMenyPage from "../components/RenderMenyPage.jsx";
 import LogIn from "../components/LogIn.jsx";
 import Checkout from "../components/Checkout.jsx";
 import MenyEmployee from "../components/MenyEmployee.jsx";
+import ProtectedRoute from "../components/ProtectedRoute.js";
 
 const router = createHashRouter([
   {
@@ -17,7 +18,7 @@ const router = createHashRouter([
       },
       {
         path: "/meny-employee",
-        element: <MenyEmployee />,
+        element: <ProtectedRoute><MenyEmployee /></ProtectedRoute>,
       },
       {
         path: "/login",
