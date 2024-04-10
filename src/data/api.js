@@ -49,9 +49,9 @@ async function loadFromApi() {
 		method: 'GET'
 	});
 	// const data = await response.json();
-	console.log('loadFromApi response ok? ', response.ok);
+	// console.log('loadFromApi response ok? ', response.ok);
 	let result = await response.json()
-	console.log('loadFromApi result: ', result);
+	// console.log('loadFromApi result: ', result);
 	return result
 }
 
@@ -65,10 +65,10 @@ const handleAPI = async () => {
 	// await saveToApi()
 	 const result = await loadFromApi()
 	 const ApiMenuFood = useVariablesStore(state => state.ApiMenuFood)
-	 console.log("LoadFronApi: ", result);
+	//  console.log("LoadFronApi: ", result);
 	return ApiMenuFood(result)
 	 
 }
 
 
-export { saveToApi, loadFromApi, handleAPI }
+export { saveToApi, loadFromApi, handleAPI, saveOriginalToApi }

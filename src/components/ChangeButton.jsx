@@ -2,7 +2,7 @@ import { useVariablesStore } from "../data/store"
 import { useState, useEffect } from "react"
 import "../css/MenyEmployee.css";
 import { saveToApi } from "../data/api";
-// import { saveToApi, loadFromApi, saveOriginal } from "../data/api";
+
 
 
 const HandleChange = ({id, name, ingredients, description, strength, type, price, image}) =>{
@@ -79,9 +79,9 @@ const HandleChange = ({id, name, ingredients, description, strength, type, price
                     <label>Bildlänk</label>
                     <input type="text" name="image" value={formValues.image} onChange={handleChange} />
                     <button onClick={handleChangeClick}>Spara</button>
-                    {/* <button onClick={saveOriginalToApi}>Spara</button> */}
                 </div>
             )}
+   
         </div>
     );
 };

@@ -1,18 +1,12 @@
-import Menu from "../data/lista";
-import { useState } from "react";
+
 import PepparPicture from "../components/pepparimage";
-// import ButtonFunction from "./ButtonFunction";
+
 import {useVariablesStore} from "../data/store.js"
 import HandleDeleteBtn  from "./ButtonFunction";
 import HandleChange from "./ChangeButton.jsx";
 const MenyEmployee = () => {
-  // const [menuFood, setMenuFood] = useState(Menu);
-  const menuFood = useVariablesStore(state => state.MenuFood)
 
-  // const handleDeleteBtn =(id) =>{
-	// const DeleteFood = menuFood.filter(mat => mat.id !==id)
-	// setMenuFood(DeleteFood)
-  // }
+  const menuFood = useVariablesStore(state => state.MenuFood)
 
 
   return (
@@ -38,7 +32,7 @@ const MenyEmployee = () => {
               <div className="Price-btn">
                 <p>Pris: {mat.price}Kr</p>
                 <HandleChange id={mat.id} name={mat.name} ingredients={mat.ingredients} description={mat.description} strength={mat.strength} type={mat.type} price={mat.price} image={mat.image}/> 
-                {/* <button className="change-btn"> Ändra</button> */}
+               
                 <HandleDeleteBtn id={mat.id} />
               </div>
             </div>
