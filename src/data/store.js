@@ -3,10 +3,10 @@ import {create} from 'zustand'
 const useVariablesStore = create(set => ({
     MenuFood: [],
     CheckoutMeny: [],
-    CheckoutTotal: 0, // Gör så att den tar checkoutMeny.price och adderar för alla object som ligger där. 
-
-    ChangeMenuItem: [], //Gör så den innehåller det aktuella objectet (fyller i form med värderna)
-    AddNewMenuItem: [], // lägga in värderna, till menu(listan)
+    CheckoutTotal: 0, 
+	Checkout: [],
+    ChangeMenuItem: [],
+    AddNewMenuItem: [], 
     activeInput: false,
     showAddFood: false,
 	
@@ -40,9 +40,39 @@ const useVariablesStore = create(set => ({
     setShowAddFood: () => set(state => ({
         showAddFood: state.showAddFood === false ? true : false
     })),
-    
-    
+    addToCheckout: (item) => {
+		set((state) => {
+			const existingItemIndex = state.Checkout.findIndex((checkoutItem) => checkoutItem.id === item.id);
+			if (existingItemIndex !== -1) {
+				const updatedCheckout = [...state.Checkout];
+				updatedCheckout[existingItemIndex].quantity += 1;
+				return { ...state, Checkout: updatedCheckout };
+			} else {
+				return { ...state, Checkout: [...state.Checkout, { ...item, quantity: 1 }] };
+			}
+		});
+		useVariablesStore.getState().calculateCheckoutTotal();
 
+	},
+
+	removeFromCheckout: (id) => {
+		console.log('Removing item from checkout with ID:', id);
+		set((state) => ({
+			...state,
+			Checkout: state.Checkout.filter((item) => item.id !== id),
+		}));
+		useVariablesStore.getState().calculateCheckoutTotal();
+	},
+
+	calculateCheckoutTotal: () => {
+		console.log('Calculating checkout total');
+		set((state) => ({
+			CheckoutTotal: state.Checkout.reduce((total, item) => total + parseInt(item.price), 0),
+		}));
+	},
+
+    
+    
 }))
 
-export {useVariablesStore}
+export { useVariablesStore };

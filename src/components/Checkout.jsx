@@ -1,32 +1,38 @@
+import React from 'react';
+import { useVariablesStore } from '../data/store.js';
+
 const Checkout = () => {
-  return (
-    <>
-      <main>
-        <div className="checkout">
-          <section className="checkout-section">
-            <div className="checkout-card">
-              <h3>name</h3>
-              <img src="" alt="bild av mat" />
-              <p>100 KR</p>
-              <button>Ta bort</button>
-              <p className="centeredP">Antal</p>
-            </div>
-            <p>Summa</p>
-          </section>
-          <section className="Form-section">
-            <div className="Form-checkout">
-              <label> namn </label>
-              <input type="text"></input>
-              <label> Telefonnummer </label>
-              <input type="text"></input>
-              <label> Mejl </label>
-              <input type="text"></input>
-            </div>
-            <button>Beställ</button>
-          </section>
-        </div>
-      </main>
-    </>
-  );
+	const { Checkout, CheckoutTotal, removeFromCheckout } = useVariablesStore(); // Destructure correctly with capital "C"
+	console.log('Checkout:', Checkout);
+	return (
+		<main>
+			<div className="checkout">
+				<section className="checkout-section">
+					{Checkout && Checkout.map((item) => (
+						<div key={item.id} className="checkout-card">
+							<h3>{item.name}</h3>
+							<img src={item.image} alt={item.name} />
+							<p>{item.price} KR</p>
+							<p>Antal: {item.quantity}</p>
+							<button onClick={() => removeFromCheckout(item.id)}>Ta bort</button>
+						</div>
+					))}
+					<p>Summa: {CheckoutTotal} KR</p>
+				</section>
+				<section className="Form-section">
+					<div className="Form-checkout">
+						<label> Namn </label>
+						<input type="text" />
+						<label> Telefonnummer </label>
+						<input type="text" />
+						<label> Mejl </label>
+						<input type="text" />
+					</div>
+					<button>Beställ</button>
+				</section>
+			</div>
+		</main>
+	);
 };
+
 export default Checkout;

@@ -5,8 +5,11 @@ import { useVariablesStore } from "../data/store";
 import { loadFromApi } from "../data/api";
 
 const RenderMenyPage = () => {
-  const {menuFood, setMenuFood } = useVariablesStore (state => ({menuFood: state.MenuFood, setMenuFood: state.setMenuFood}))
- 
+  const {menuFood, setMenuFood , addToCheckout} = useVariablesStore (state => ({menuFood: state.MenuFood, setMenuFood: state.setMenuFood, addToCheckout:state.addToCheckout}))
+	
+  const handleAddToCheckout = (item) => {
+	addToCheckout(item);
+	};
 
   useEffect (() => {
     async function nisse(){
@@ -47,13 +50,12 @@ const RenderMenyPage = () => {
             </div>
             <div className="Price-btn">
               <p>Pris: {mat.price}Kr</p>
-              <button className="add-btn"> Lägg till</button>
+			  <button className="add-btn" onClick={() => handleAddToCheckout(mat)}> Lägg till</button>
             </div>
           </div>
         ))}
       </section>
     </main>
-  );
-};
+  );}
 
-export default RenderMenyPage;
+  export default RenderMenyPage 
