@@ -11,10 +11,10 @@ const Checkout = () => {
 					{Checkout && Checkout.map((item) => (
 						<div key={item.id} className="checkout-card">
 							<h3>{item.name}</h3>
-							<img src={item.image} alt={item.name} />
+							<img className='food-picture' src={item.image} alt={item.name} />
 							<p>{item.price} KR</p>
 							<p>Antal: {item.quantity}</p>
-							<button onClick={() => removeFromCheckout(item.id)}>Ta bort</button>
+							<button className='remove-btn' onClick={() => removeFromCheckout(item.id)}>Ta bort</button>
 						</div>
 					))}
 					<p>Summa: {CheckoutTotal} KR</p>

@@ -3,6 +3,8 @@ import PepparPicture from "../components/pepparimage";
 import cart from "../data/cart.png"
 import { useVariablesStore } from "../data/store";
 import { loadFromApi } from "../data/api";
+import { NavLink } from "react-router-dom";
+
 
 const RenderMenyPage = () => {
   const {menuFood, setMenuFood , addToCheckout} = useVariablesStore (state => ({menuFood: state.MenuFood, setMenuFood: state.setMenuFood, addToCheckout:state.addToCheckout}))
@@ -28,12 +30,13 @@ const RenderMenyPage = () => {
   };
 
 
-
   return (
 
     <main>
       <h2>MENY</h2>
-	  <img className="cart" src={cart} alt="" />
+      <NavLink to="/Checkout"> <img src={cart} alt="kundvagnen" className="cart"/>
+</NavLink> 
+
       <section className="menyFoodDiv">
         {menuFood.map((mat, index) => (
           <div key={index} className="meny-container">

@@ -5,8 +5,9 @@ const useVariablesStore = create(set => ({
     CheckoutMeny: [],
     CheckoutTotal: 0, 
 	Checkout: [],
-    ChangeMenuItem: [],
-    AddNewMenuItem: [], 
+  
+    // ChangeMenuItem: [],
+    // AddNewMenuItem: [], 
     activeInput: false,
     showAddFood: false,
 	
@@ -59,7 +60,16 @@ const useVariablesStore = create(set => ({
 		console.log('Removing item from checkout with ID:', id);
 		set((state) => ({
 			...state,
-			Checkout: state.Checkout.filter((item) => item.id !== id),
+            Checkout: state.Checkout.map((item) => {
+                if (item.id === id && item.quantity > 1) {
+                   
+                    return { ...item, quantity: item.quantity - 1 };
+                } else if (item.id === id && item.quantity === 1) {
+                   
+                    return null;
+                }
+                return item;
+            }).filter((item) => item !== null), 
 		}));
 		useVariablesStore.getState().calculateCheckoutTotal();
 	},
@@ -67,7 +77,7 @@ const useVariablesStore = create(set => ({
 	calculateCheckoutTotal: () => {
 		console.log('Calculating checkout total');
 		set((state) => ({
-			CheckoutTotal: state.Checkout.reduce((total, item) => total + parseInt(item.price), 0),
+			CheckoutTotal: state.Checkout.reduce((total, item) => total + (parseInt(item.price)* item.quantity), 0),
 		}));
 	},
 
