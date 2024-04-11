@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useVariablesStore } from "../data/store";
+import { saveToApi } from "../data/api";
 
 const AddFood = ({ id, name, ingredients, description, strength, type, price, image }) => {
-    const { MenuFood, showAddFood, setShowAddFood  } = useVariablesStore(state => ({MenuFood: state.MenuFood, showAddFood: state.showAddFood, setShowAddFood: state.setShowAddFood})); 
+    const { MenuFood, showAddFood, setShowAddFood, addFoodToMenu } = useVariablesStore(state => ({MenuFood: state.MenuFood, showAddFood: state.showAddFood, setShowAddFood: state.setShowAddFood, addFoodToMenu: state.addFoodToMenu})); 
 	const [foodAdd, setFoodAdd] = useState({
 		name: name || '', // Om name är falsy, använd en tom sträng
 		description: description || '', // Samma här
@@ -24,11 +25,8 @@ const AddFood = ({ id, name, ingredients, description, strength, type, price, im
         }));
     };
 
-    const handleSaveFood = () => {
-        if (foodAdd.name && foodAdd.description && foodAdd.ingredients && foodAdd.price && foodAdd.strength && foodAdd.image && foodAdd.type ) {
-            useVariablesStore.setState(state => ({
-                MenuFood: [...state.MenuFood, foodAdd] 
-            }));
+    const handleSaveFood = () => {    
+           addFoodToMenu(foodAdd)
             setShowAddFood()
             setFoodAdd({ 
                 name: '',
@@ -39,9 +37,7 @@ const AddFood = ({ id, name, ingredients, description, strength, type, price, im
                 image: '',
 				type: "",
             });
-        } else {
-            alert("Var vänlig fyll i alla fält.");
-        }
+       
     };
 
     return (
