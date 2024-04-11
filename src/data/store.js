@@ -8,7 +8,7 @@ const useVariablesStore = create(set => ({
     ChangeMenuItem: [], //Gör så den innehåller det aktuella objectet (fyller i form med värderna)
     AddNewMenuItem: [], // lägga in värderna, till menu(listan)
     activeInput: false,
-
+    showAddFood: false,
 	
 	setMenuFood: (result) => set( ({
 		MenuFood: result
@@ -22,7 +22,7 @@ const useVariablesStore = create(set => ({
 
     
 
-     changeMenuItemUppdate: (id, newData) => set(state => ({
+    changeMenuItemUppdate: (id, newData) => set(state => ({
         MenuFood: state.MenuFood.map(item => {
             if (item.id === id) {
 				
@@ -35,7 +35,12 @@ const useVariablesStore = create(set => ({
         
 		 
            
-    }))
+    })),
+
+    setShowAddFood: () => set(state => ({
+        showAddFood: state.showAddFood === false ? true : false
+    })),
+    
     
 
 }))

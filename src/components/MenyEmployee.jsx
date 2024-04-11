@@ -1,19 +1,26 @@
-
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import PepparPicture from "../components/pepparimage";
 import { saveToApi } from "../data/api.js";
 import {useVariablesStore} from "../data/store.js"
 import HandleDeleteBtn  from "./ButtonFunction";
 import HandleChange from "./ChangeButton.jsx";
+import AddFood from "./AddFood.jsx";
 const MenyEmployee = () => {
 
-  const menuFood = useVariablesStore(state => state.MenuFood)
+  const {menuFood, showAddFood, setShowAddFood} = useVariablesStore(state => ({menuFood: state.MenuFood, showAddFood: state.showAddFood, setShowAddFood: state.setShowAddFood}))
+  // const [showAddFood, setShowAddFood] = useState(false);
   const generatePeppers = (strength) => {
     const peppers = [];
     for (let i = 0; i < strength; i++) {
       peppers.push(<PepparPicture key={i} />);
     }
     return peppers;
+  };
+  
+  const addFoodClick = () => {
+    console.log("click");
+    setShowAddFood();
   };
 
   return (
@@ -46,10 +53,9 @@ const MenyEmployee = () => {
             </div>
           ))}
         </section>
-        <button className="add-food-btn">Lägg till ny maträtt</button>
+        <button className="add-food-btn" onClick={addFoodClick}>Lägg till ny maträtt</button>
         {/* <button className="add-food-btn" onClick={() => saveToApi(menuFood)}>SPARA ÄNDRINGAR</button> */}
-        <section className="Form-section">
-			
+		{showAddFood && <AddFood />}
           {/* <div className="Form-checkout">
             <label> Bild länk</label>
             <input type="text"></input>
@@ -65,7 +71,6 @@ const MenyEmployee = () => {
             <input type="text"></input>
           </div>
           <button>Spara</button> */}
-        </section>
       </div>
     </main>
   );

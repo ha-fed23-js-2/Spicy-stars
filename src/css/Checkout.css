@@ -73,14 +73,49 @@ main {
   display: flex;
   flex-direction: column;
   border-radius: 0.4em;
+  position: fixed;
+  right: 6em;
+  padding: 2em;
+  border: solid 1px var(--text-color);
+  background-color:	#3a3737;
+  bottom: 12em;
 }
 
-.Form-checkout > label {
+.Form-checkout > label, .Form-checkout-add > label {
   text-align: left;
   margin: 0.2em 0;
 }
-.Form-checkout > input {
+.Form-checkout > input, .Form-checkout-add > input {
   width: 20em;
   border-radius: 0.7em;
   margin: 0.5em 0;
+}
+
+.Form-section-add{
+  padding: 1.5em 2em;
+  border: solid 1px var(--text-color);
+  background-color: #2a2929;
+  margin: 1em 0;
+  margin-bottom: 1em;
+  display: grid;
+  grid-template-columns: 1fr;
+  /* display: none; */
+  
+}
+
+.Form-section-add  > button {
+	background-color: var(--text-color);
+	width: 6.4em;
+	height: 2em;
+	border-radius: 1em;
+	font-size: 16px;
+	place-self: center;
+	margin-top: 1.3em;
+	font-family: "Julius Sans One", sans-serif;
+	font-weight: bold;
+}
+.Form-checkout-add {
+	display: flex;
+	flex-direction: column;
+	border-radius: 0.4em; 
 }
