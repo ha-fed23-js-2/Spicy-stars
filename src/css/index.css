@@ -84,9 +84,9 @@ footer > img {
 	  }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 900px) {
 	.welcomeImg {
-		width: 100%;
+		width: 95%;
 		
 	  }
 	  .startpage-flexcontainer {
