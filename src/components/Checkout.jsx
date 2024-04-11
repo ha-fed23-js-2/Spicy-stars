@@ -5,7 +5,7 @@ const Checkout = () => {
 	const { Checkout, CheckoutTotal, removeFromCheckout } = useVariablesStore(); // Destructure correctly with capital "C"
 	console.log('Checkout:', Checkout);
 	return (
-		<main>
+		<main className='main-checkout'>
 			<div className="checkout">
 				<section className="checkout-section">
 					{Checkout && Checkout.map((item) => (
@@ -27,6 +27,7 @@ const Checkout = () => {
 						<input type="text" />
 						<label> Mejl </label>
 						<input type="text" />
+						
 					</div>
 					<button>Beställ</button>
 				</section>

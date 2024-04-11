@@ -11,12 +11,15 @@ main {
   grid-template-rows: repeat(2, 1fr);
   padding: 0.6em;
   place-items: center;
+  margin-top: 3em;
+ 
 }
 .checkout-section {
   border: solid 1px var(--text-color);
   background-color: #2a2929;
   display: grid;
   grid-template-columns: 1fr;
+  
 }
 .checkout-section > p {
   place-self: center;
@@ -72,19 +75,30 @@ main {
   display: flex;
   flex-direction: column;
   border-radius: 0.4em;
-  /* position: fixed;
-  right: 6em;
   padding: 2em;
   border: solid 1px var(--text-color);
   background-color:	#3a3737;
-  bottom: 12em; */
+  
 }
+.Form-food {
+	display: flex;
+	flex-direction: column;
+	border-radius: 0.4em;
+	position: fixed;
+	padding: 2em;
+	border: solid 1px var(--text-color);
+	background-color: #3a3737;
+	/* Centrera vertikalt och horisontellt */
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  }
 
-.Form-checkout > label, .Form-checkout-add > label {
+.Form-food > label, .Form-checkout-add > label, .Form-checkout > input {
   text-align: left;
   margin: 0.2em 0;
 }
-.Form-checkout > input, .Form-checkout-add > input {
+.Form-food > input, .Form-checkout-add > input, .Form-checkout > input {
   width: 20em;
   border-radius: 0.7em;
   margin: 0.5em 0;
@@ -102,7 +116,7 @@ main {
   
 }
 
-.Form-section-add  > button {
+.Form-section-add  > button, .Form-food > button {
 	background-color: var(--text-color);
 	width: 6.4em;
 	height: 2em;
@@ -117,4 +131,28 @@ main {
 	display: flex;
 	flex-direction: column;
 	border-radius: 0.4em; 
+}
+
+@media screen and (min-width: 1000px) {
+	.checkout {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 0.6em;
+	max-width: 1000px;
+	grid-template-rows: 1fr;
+	place-items: initial;
+	grid-gap: 1em;
+  }
+  .main-checkout{
+	display: grid;
+	place-items: center;
+  }
+  .Form-section{
+	margin: 0em;
+	/* display: grid;
+	place-items: center; */
+	height: 25em;
+  }
+  
+
 }

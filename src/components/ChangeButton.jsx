@@ -62,7 +62,7 @@ const HandleChange = ({id, name, ingredients, description, strength, type, price
         <div className="change-btn-container">
             <button className={`${showButton ? 'change-btnAlt' : 'change-btn'}`} onClick={toggleForm}>Ändra</button>
             {showForm && (
-                <div className="Form-checkout">
+                <div className="Form-food">
                     <label>Namn maträtt</label>
                     <input type="text" name="name" value={formValues.name} onChange={handleChange} />
                     <label>Beskrivning</label>

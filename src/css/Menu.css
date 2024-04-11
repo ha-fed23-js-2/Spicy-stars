@@ -8,7 +8,7 @@ main {
   /* height: 80vh; */
 }
 .cart{
-	height: 30px;
+	height: 50px;
 	position: absolute;
 	top: 15px ;
 	right: 15px;
@@ -32,6 +32,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   padding: 1em;
   background-color: #2a2929;
+  min-height: 240px;
 }
 .meny-container > h2 {
   grid-column: span 2;
@@ -84,4 +85,28 @@ p {
   border-radius: 1em;
   font-size: 12px;
   place-self: center;
+}
+
+@media screen and (min-width: 450px){
+	.meny-container {
+		max-width: 430px;
+	  }
+	  .menyFoodDiv {
+		place-items: center;
+	  }
+}
+
+
+  @media screen and (min-width: 1000px){
+	.menyFoodDiv {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	max-width: 1000px;
+	
+  }
+  .main-meny{
+	display: grid;
+	place-items: center;
+	
+  }
 }

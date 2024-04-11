@@ -17,6 +17,7 @@
   border-radius: 1em;
   font-size: 12px;
   place-self: center;
+ 
 }
 .logout-btn {
   background-color: var(--text-color);

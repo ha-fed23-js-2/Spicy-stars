@@ -5,7 +5,7 @@ import "../css/login.css";
 import "../css/Checkout.css";
 import "../css/MenyEmployee.css";
 // <NavLink to="/"> Meny </NavLink>
-import profil from "../data/profil.png"
+import profil from "../data/login-icon.png"
 
 
 const Root = () => (
