@@ -34,7 +34,7 @@ const MenyEmployee = () => {
           {menuFood.map((mat, index) => (
             <div key={index} className="meny-container">
               <h2>
-                {mat.id}. {mat.name}
+                {mat.name}
               </h2>
               <img src={mat.image} alt={mat.name} className="food-picture" />
               <div className="description-food">
