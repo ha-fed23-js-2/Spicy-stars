@@ -18,7 +18,7 @@ const RenderStartPage = () => {
             </p>
           </div>
           <p className="phone">Tele: 0202-020202 </p>
-          <button className="meny-btn"><NavLink to="/meny"> Meny </NavLink> </button>
+          <button className="meny-btn"><NavLink to="/meny" className="nav-link-style"> Meny </NavLink> </button>
           <button onClick={saveOriginalToApi}>Spara Orginal till API</button>
         </div>
       </main>

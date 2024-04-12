@@ -43,7 +43,6 @@ const AddFood = ({ id, name, ingredients, description, strength, type, price, im
         switch (name) {
             case 'name':
                 error = value.trim() === '' ? 'Namnet är obligatoriskt' : '';
-
                 break;
             case 'image':
                 error = value.trim() === '' ? 'Bildlänk är obligatorisk' : '';
@@ -80,17 +79,22 @@ const AddFood = ({ id, name, ingredients, description, strength, type, price, im
     
 
     const handleSaveFood = () => {    
-           addFoodToMenu(foodAdd)
-            setShowAddFood()
-            setFoodAdd({ 
-                name: '',
-                description: '',
-                ingredients: '',
-                price: '',
-                strength: '',
-                image: '',
-				type: "",
-            });
+        setShowAddFood()
+        if (foodAdd.name && foodAdd.description && foodAdd.ingredients && foodAdd.price && foodAdd.strength && foodAdd.image && foodAdd.type ){
+                 addFoodToMenu(foodAdd)
+                 setFoodAdd({ 
+                     name: '',
+                     description: '',
+                     ingredients: '',
+                     price: '',
+                     strength: '',
+                     image: '',
+                     type: "",
+                 });
+             }
+             else {
+                
+             }
        
     };
  
@@ -100,34 +104,34 @@ const AddFood = ({ id, name, ingredients, description, strength, type, price, im
         <div className="Form-checkout-add">
             <label> Bild länk</label>
             <input type="text" name="image" value={foodAdd.image} onBlur={handleBlurChange} onChange={handleInputChange} />
-                {errors.image && 
-                 <p className="error">{errors.image}</p>} 
-                 <p className={`${isShown ? 'errors' : 'shown'}`} >1</p>
+            <p className={errors.image ? 'error' : 'shown'}>{errors.image ? errors.image : 'Placeholder text'}</p>
+
             <label> Namn maträtt </label>
             <input type="text" name="name" value={foodAdd.name} onChange={handleInputChange} onBlur={handleBlurChange}/>
-                {errors.name && <p className="error">{errors.name}</p>}
-                <p className={`${isShown ? 'errors' : 'shown'}`} >1</p>
+            <p className={errors.name ? 'error' : 'shown'}>{errors.name ? errors.name : 'Placeholder text'}</p>
+
             <label> Beskrivning </label>
             <input type="text" name="description" value={foodAdd.description} onChange={handleInputChange} onBlur={handleBlurChange}/>   
-             {errors.name && <p className="error">{errors.description}</p>}
-             <p className={`${isShown ? 'errors' : 'shown'}`} >1</p>
+            <p className={errors.description ? 'error' : 'shown'}>{errors.description ? errors.description : 'Placeholder text'}</p>
+             
+
             <label> Ingredienser </label>
             <input type="text" name="ingredients" value={foodAdd.ingredients} onChange={handleInputChange} onBlur={handleBlurChange}/>
-            {errors.name && <p className="error">{errors.ingredients}</p>}
-            <p className={`${isShown ? 'errors' : 'shown'}`} >1</p>
+            <p className={errors.ingredients ? 'error' : 'shown'}>{errors.ingredients ? errors.ingredients : 'Placeholder text'}</p>
+
             <label> Pris </label>
             <input type="text" name="price" value={foodAdd.price} onChange={handleInputChange}onBlur={handleBlurChange} />
-            {errors.name && <p className="error">{errors.price}</p>}
-            <p className={`${isShown ? 'errors' : 'shown'}`} >1</p>
+            <p className={errors.price ? 'error' : 'shown'}>{errors.price ? errors.price : 'Placeholder text'}</p>
+
             <label> Styrka </label>
             <input type="text" name="strength" value={foodAdd.strength} onChange={handleInputChange} onBlur={handleBlurChange} />
-            {errors.name && <p className="error">{errors.strength}</p>}
-            <p className={`${isShown ? 'errors' : 'shown'}`} >1</p>
+            <p className={errors.strength ? 'error' : 'shown'}>{errors.strength ? errors.strength : 'Placeholder text'}</p>
+
             <label> Type </label>
             <input type="text" name="type" value={foodAdd.type} onChange={handleInputChange} onBlur={handleBlurChange} />
-            {errors.name && <p className="error">{errors.type} </p>}
-            <p className={`${isShown ? 'errors' : 'shown'}`} >1</p>
-            <button className="add-food-btn" onClick={handleSaveFood}>Spara</button>
+            <p className={errors.type ? 'error' : 'shown'}>{errors.type ? errors.type : 'Placeholder text'}</p>
+
+            <button className="add-food-btn" onClick={handleSaveFood} disabled={!foodAdd.name || !foodAdd.description || !foodAdd.ingredients || !foodAdd.price || !foodAdd.strength || !foodAdd.image || !foodAdd.type}>Spara</button>
         </div>
 		</section>
     );

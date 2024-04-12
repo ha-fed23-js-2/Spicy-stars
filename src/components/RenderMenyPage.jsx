@@ -34,7 +34,7 @@ const RenderMenyPage = () => {
 
     <main className="main-meny">
       <h2>MENY</h2>
-      <NavLink to="/Checkout"> <img src={cart} alt="kundvagnen" className="cart"/>
+      <NavLink to="/Checkout" className="nav-link-style"> <img src={cart} alt="kundvagnen" className="cart"/>
 	</NavLink> 
 
       <section className="menyFoodDiv">

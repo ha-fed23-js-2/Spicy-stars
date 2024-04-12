@@ -1,6 +1,10 @@
 :root {
   --text-color: #ff9c06;
 }
+.nav-link-style {
+  text-decoration: none;
+  color: black;
+}
 
 header {
   font-family: "Julius Sans One", sans-serif;
@@ -41,6 +45,7 @@ body {
   font-family: "Julius Sans One", sans-serif;
   font-size: 14px;
   padding-top: 3em;
+  cursor: pointer;
 }
 
 .meny-btn {

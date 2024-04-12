@@ -16,9 +16,9 @@ const HandleDeleteBtn =({id}) => {
 		
 	}
 
-
 	return (
-		<button className="delete-btn" onClick={handleClick}> Ta bort </button>
+		<div className="change-btn-container">
+		<button className="delete-btn" onClick={handleClick}> Ta bort </button> </div>
 	)
 }
 

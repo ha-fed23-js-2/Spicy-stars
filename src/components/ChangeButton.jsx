@@ -68,7 +68,6 @@ const HandleChange = ({id, name, ingredients, description, strength, type, price
                     <label>Bildlänk</label>
                     <input type="text" name="image" value={formValues.image} onChange={handleChange} />
                     <button onClick={handleChangeClick}>Spara</button>
-                    {/* <button onClick={() => saveToApi(menuFood)}>Spara</button> */}
                 </div>
             )}
    

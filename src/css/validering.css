@@ -14,15 +14,11 @@
     margin: 0;
 }
 .errors {
-    /* display: block; */
-    /* visibility: hidden; */
     margin: 0;
-    /* display: none; */
 }
 .shown {
-    display: none;
     margin: 0;
-    /* visibility: hidden; */
+    visibility: hidden;
 }
 
 

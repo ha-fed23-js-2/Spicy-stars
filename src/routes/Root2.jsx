@@ -12,7 +12,7 @@ import profil from "../data/login-icon.png"
 const Root = () => (
   <>
     <header>
-      <h1>Spicy Food </h1>
+      <NavLink to="/" className="nav-link-style"><h1>Spicy Food </h1></NavLink>
     </header>
     <Outlet />
     <footer>
