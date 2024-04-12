@@ -1,6 +1,7 @@
 import React from 'react';
 import { useVariablesStore } from '../data/store.js';
 import { useState } from 'react';
+import PopupTillBeställt from './PopupTillBeställt.jsx';
 // import { log } from 'surge/lib/middleware/util/helpers.js';
 
 const Checkout = () => {
@@ -18,6 +19,18 @@ const [orderPhoneError, setOrderPhoneError] = useState('');
 const [isFormValidName, setIsFormValidName] = useState(0)
 const [isFormValidTel, setIsFormValidTel] = useState(0)
 const [isFormValidMail, setIsFormValidMail] = useState(0)
+
+const [isVisible, setIsVisible] = useState(false);
+
+const handelClickOrder = () => {
+	toggleVisibility();
+}
+const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+	setTimeout(() => {
+		setIsVisible(false);
+	  }, 1000);
+  };
 
 const handleBlurName = () => {
 	validateFormName();
@@ -117,7 +130,8 @@ const validateFormTel = () => {
 					{isFormValidMail === true ? '✔️' : isFormValidMail=== false ? '❌' : ''}
 						</p>
 					</div>
-					<button>Beställ</button>
+					<button onClick={handelClickOrder}>Beställ</button>
+					{isVisible &&< PopupTillBeställt />}
 				</section>
 			</div>
 		</main>
