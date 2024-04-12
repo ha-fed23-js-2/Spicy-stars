@@ -1,4 +1,5 @@
 import {create} from 'zustand'
+import { saveToApi } from './api';
 
 const useVariablesStore = create(set => ({
     MenuFood: [],
@@ -16,31 +17,36 @@ const useVariablesStore = create(set => ({
 	})),
 	
 
-    deleteMenyItem: (id) => set(state => ({
-        MenuFood: state.MenuFood.filter(mat => mat.id !== id)
-       
-    })),
+    deleteMenyItem: (id) => set(state => {
+        const tempDeleteList = state.MenuFood.filter(mat => mat.id !== id)
+        saveToApi(tempDeleteList);
+        return {MenuFood: tempDeleteList}
+    }),
 
     
-
-    changeMenuItemUppdate: (id, newData) => set(state => ({
-        MenuFood: state.MenuFood.map(item => {
+    changeMenuItemUppdate: (id, newData) => set(state => {
+        const updatedMenuFood = state.MenuFood.map(item => {
             if (item.id === id) {
-				
-                return { ...item, ...newData } ;
+                return { ...item, ...newData };
             }
-			
-             return item;
+            return item;
+        });
+    
+        console.log(updatedMenuFood);
+        saveToApi(updatedMenuFood);
+        return { MenuFood: updatedMenuFood };
+    }),
 
-         }),
-        
-		 
-           
-    })),
+    addFoodToMenu : (foodAdd) => set(state => {
+        const tempAddedFoodList = [...state.MenuFood, foodAdd]
+        saveToApi(tempAddedFoodList)
+        return {MenuFood:tempAddedFoodList}
 
+    }),
     setShowAddFood: () => set(state => ({
         showAddFood: state.showAddFood === false ? true : false
     })),
+    
     addToCheckout: (item) => {
 		set((state) => {
 			const existingItemIndex = state.Checkout.findIndex((checkoutItem) => checkoutItem.id === item.id);

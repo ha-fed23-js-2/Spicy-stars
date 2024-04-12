@@ -31,21 +31,11 @@ const HandleChange = ({id, name, ingredients, description, strength, type, price
         setShowButton(true)
         
     };
-    const changeObj = (newValues) => {
-        const updatedValues = { ...formValues, ...newValues };
-        changeMenyItemUpdate(id, updatedValues);
-        
-    };
-    
-    useEffect (() => {
-        async function nisse(){
-          saveToApi(menuFood)
-        }
-          nisse()
-      },[menuFood])
+
+  
     
     const handleChangeClick = () => {
-        changeObj(formValues);
+        changeMenyItemUpdate(id, formValues);
         setShowForm(false)
         setShowButton(false)
     };

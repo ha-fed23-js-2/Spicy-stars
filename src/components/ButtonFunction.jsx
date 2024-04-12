@@ -13,7 +13,7 @@ const HandleDeleteBtn =({id}) => {
 
 		console.log("clicked");
 		deleteMenyItem(id)
-		saveToApi(menuFood);
+		
 	}
 
 
