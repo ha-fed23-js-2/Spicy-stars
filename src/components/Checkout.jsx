@@ -1,12 +1,15 @@
 import React from 'react';
 import { useVariablesStore } from '../data/store.js';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PopupTillBeställt from './PopupTillBeställt.jsx';
 
 
 const Checkout = () => {
-	const { Checkout, CheckoutTotal, removeFromCheckout } = useVariablesStore(); 
+	const { Checkout, CheckoutTotal, removeFromCheckout, clearLocalStorage } = useVariablesStore(); 
 	console.log('Checkout:', Checkout);
+	useEffect(() => {
+		useVariablesStore.getState().calculateCheckoutTotal();
+	}, [Checkout]);
 	
 	const [orderName, setOrderName] = useState('');
 	const [orderEmail, setOrderEmail] = useState('');
@@ -24,8 +27,11 @@ const Checkout = () => {
 	const [isVisible, setIsVisible] = useState(false);
 	
 	const handelClickOrder = () => {
+		clearLocalStorage()
 		toggleVisibility();
+		
 	}
+
 	const toggleVisibility = () => {
 		setIsVisible(!isVisible);
 		setTimeout(() => {
@@ -55,9 +61,7 @@ const Checkout = () => {
 			return email.length > 0 && email.includes('@');
 		};
 		const validateFormEmail = () => {
-			// isValidEmail = (email) => {
-			// 	return email.length > 0 && email.includes('@');
-			// };
+
 			
 			if (!isValidEmail(orderEmail)) {
 				setOrderEmailError('Felaktig Email');

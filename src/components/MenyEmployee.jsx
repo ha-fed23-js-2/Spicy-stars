@@ -9,7 +9,6 @@ import AddFood from "./AddFood.jsx";
 const MenyEmployee = () => {
 
   const {menuFood, showAddFood, setShowAddFood} = useVariablesStore(state => ({menuFood: state.MenuFood, showAddFood: state.showAddFood, setShowAddFood: state.setShowAddFood}))
-  // const [showAddFood, setShowAddFood] = useState(false);
   const generatePeppers = (strength) => {
     const peppers = [];
     for (let i = 0; i < strength; i++) {
@@ -54,23 +53,9 @@ const MenyEmployee = () => {
           ))}
         </section>
         <button className="add-food-btn" onClick={addFoodClick}>Lägg till ny maträtt</button>
-        {/* <button className="add-food-btn" onClick={() => saveToApi(menuFood)}>SPARA ÄNDRINGAR</button> */}
+       
 		{showAddFood && <AddFood />}
-          {/* <div className="Form-checkout">
-            <label> Bild länk</label>
-            <input type="text"></input>
-            <label> Namn maträtt </label>
-            <input type="text"></input>
-            <label> Beskrivning </label>
-            <input type="text"></input>
-            <label> Ingredienser </label>
-            <input type="text"></input>
-            <label> Pris </label>
-            <input type="text"></input>
-            <label> Styrka </label>
-            <input type="text"></input>
-          </div>
-          <button>Spara</button> */}
+        
       </div>
     </main>
   );

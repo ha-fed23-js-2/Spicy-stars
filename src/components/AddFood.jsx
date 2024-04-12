@@ -1,18 +1,17 @@
 import { useState } from "react";
 import { useVariablesStore } from "../data/store";
 import { saveToApi } from "../data/api";
-// import { useForm } from "react-hook-form";
 
 const AddFood = ({ id, name, ingredients, description, strength, type, price, image }) => {
     const { MenuFood, showAddFood, setShowAddFood, addFoodToMenu } = useVariablesStore(state => ({MenuFood: state.MenuFood, showAddFood: state.showAddFood, setShowAddFood: state.setShowAddFood, addFoodToMenu: state.addFoodToMenu})); 
 	const [foodAdd, setFoodAdd] = useState({
-		name: name || '', // Om name är falsy, använd en tom sträng
-		description: description || '', // Samma här
-		ingredients: ingredients || '', // Samma här
-		price: price || '', // Samma här
-		strength: strength || '', // Samma här
-		type: type || '', // Samma här
-		image: image || '', // Samma här
+		name: name || '', 
+		description: description || '', 
+		ingredients: ingredients || '', 
+		price: price || '', 
+		strength: strength || '', 
+		type: type || '', 
+		image: image || '', 
 		id: MenuFood.length +1 
 	});
      const [isShown, setIsShown] = useState(true)
