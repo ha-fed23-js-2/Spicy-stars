@@ -74,12 +74,27 @@ main {
 .Form-checkout {
   display: flex;
   flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   border-radius: 0.4em;
   padding: 2em;
   border: solid 1px var(--text-color);
   background-color:	#3a3737;
+  gap: 0.7em;
   
 }
+.form-div {
+  display: grid;
+  grid-template-columns: 300px 20px;
+ 
+}
+.form-div > label {
+  grid-column: span 2;
+}
+/* .form-div > p {
+  height: 1.5em;
+} */
+
 .Form-food {
 	display: flex;
 	flex-direction: column;
@@ -94,11 +109,11 @@ main {
 	transform: translate(-50%, -50%);
   }
 
-.Form-food > label, .Form-checkout-add > label, .Form-checkout > input {
+.Form-food > label, .Form-checkout-add > label, .form-div > input {
   text-align: left;
   margin: 0.2em 0;
 }
-.Form-food > input, .Form-checkout-add > input, .Form-checkout > input {
+.Form-food > input, .Form-checkout-add > input, .form-div > input {
   width: 20em;
   border-radius: 0.7em;
   margin: 0.5em 0;
@@ -151,7 +166,7 @@ main {
 	margin: 0em;
 	/* display: grid;
 	place-items: center; */
-	height: 25em;
+	/* height: 25em; */
   }
   
 

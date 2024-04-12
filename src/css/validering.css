@@ -1,9 +1,28 @@
 
 .valid-message {
     visibility: visible;
-    
+    margin: 0;
+    place-self: center;
 }
 .invalid-message{
-    visibility: hidden;
-    
+    visibility: visible;
+    color: rgb(177, 36, 36);
+    margin: 0;
+    place-self: center;
 }
+.error {
+    margin: 0;
+}
+.errors {
+    /* display: block; */
+    /* visibility: hidden; */
+    margin: 0;
+    /* display: none; */
+}
+.shown {
+    display: none;
+    margin: 0;
+    /* visibility: hidden; */
+}
+
+

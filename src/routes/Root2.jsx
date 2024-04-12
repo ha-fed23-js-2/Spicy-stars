@@ -4,6 +4,7 @@ import "../css/index.css";
 import "../css/login.css";
 import "../css/Checkout.css";
 import "../css/MenyEmployee.css";
+import "../css/validering.css"
 // <NavLink to="/"> Meny </NavLink>
 import profil from "../data/login-icon.png"
 
