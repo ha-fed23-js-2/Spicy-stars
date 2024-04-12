@@ -6,7 +6,7 @@ import { saveOriginalToApi } from "../data/api";
 const RenderStartPage = () => {
   return (
     <>
-      <main>
+      <main className="main-startpage">
         <p className="adress">Spice gatan 3 444 44 SpicyLand</p>
         <div className="startpage-flexcontainer">
           <img className="welcomeImg" src={framsidabild} alt="framsida bild" />

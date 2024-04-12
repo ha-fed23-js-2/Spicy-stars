@@ -24,7 +24,7 @@ const MenyEmployee = () => {
   };
 
   return (
-    <main>
+    <main className="main-employee">
      <button className="logout-btn"><NavLink to="/meny"> Logga ut </NavLink></button>
     
 

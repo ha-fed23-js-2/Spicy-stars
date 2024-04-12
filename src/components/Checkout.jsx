@@ -66,7 +66,7 @@ const validateFormTel = () => {
 }
 
 	return (
-		<main>
+		<main className='main-checkout'>
 			<div className="checkout">
 				<section className="checkout-section">
 					{Checkout && Checkout.map((item) => (

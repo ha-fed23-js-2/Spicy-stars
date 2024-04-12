@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import PepparPicture from "../components/pepparimage";
-import cart from "../data/cart.png"
+import cart from "../data/kundvagn.png"
 import { useVariablesStore } from "../data/store";
 import { loadFromApi } from "../data/api";
 import { NavLink } from "react-router-dom";
@@ -32,10 +32,10 @@ const RenderMenyPage = () => {
 
   return (
 
-    <main>
+    <main className="main-meny">
       <h2>MENY</h2>
       <NavLink to="/Checkout"> <img src={cart} alt="kundvagnen" className="cart"/>
-</NavLink> 
+	</NavLink> 
 
       <section className="menyFoodDiv">
         {menuFood.map((mat, index) => (
