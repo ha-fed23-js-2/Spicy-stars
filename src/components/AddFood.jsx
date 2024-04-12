@@ -67,7 +67,6 @@ const AddFood = ({ id, name, ingredients, description, strength, type, price, im
                     error = value.trim() === ''? 'typ av mat är obligatorisk' : '';
                    break;
 
-            // Lägg till validering för andra fält här
             default:
                 break;
         }
