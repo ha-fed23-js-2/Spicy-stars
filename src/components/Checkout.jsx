@@ -20,6 +20,7 @@ const Checkout = () => {
 	const [isFormValidTel, setIsFormValidTel] = useState(0)
 	const [isFormValidMail, setIsFormValidMail] = useState(0)
 	
+	
 	const [isVisible, setIsVisible] = useState(false);
 	
 	const handelClickOrder = () => {
@@ -50,10 +51,13 @@ const Checkout = () => {
 			setOrderNameError('');
 			setIsFormValidName(true)
 		}}
+		let isValidEmail = (email) => {
+			return email.length > 0 && email.includes('@');
+		};
 		const validateFormEmail = () => {
-			const isValidEmail = (email) => {
-				return email.length > 0 && email.includes('@');
-			};
+			// isValidEmail = (email) => {
+			// 	return email.length > 0 && email.includes('@');
+			// };
 			
 			if (!isValidEmail(orderEmail)) {
 				setOrderEmailError('Felaktig Email');
@@ -74,7 +78,7 @@ const Checkout = () => {
 					setIsFormValidTel(true)
 				}
 				
-				//  setIsFormValid(isValid)
+			
 			}
 			
 			return (
@@ -150,7 +154,7 @@ const Checkout = () => {
 				)}
 				</div>
 				</div>
-				<button onClick={handelClickOrder}>Beställ</button>
+				<button onClick={handelClickOrder} disabled={isFormValidName === 0 || isFormValidTel === 0 || isFormValidMail === 0 || !isValidEmail(orderEmail)}>Beställ</button>
 					{isVisible &&< PopupTillBeställt />}
 				</section>
 				</div>
