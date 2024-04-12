@@ -1,10 +1,11 @@
 import React from 'react';
 import { useVariablesStore } from '../data/store.js';
 import { useState } from 'react';
+import PopupTillBeställt from './PopupTillBeställt.jsx';
 
 
 const Checkout = () => {
-	const { Checkout, CheckoutTotal, removeFromCheckout } = useVariablesStore(); // Destructure correctly with capital "C"
+	const { Checkout, CheckoutTotal, removeFromCheckout } = useVariablesStore(); 
 	console.log('Checkout:', Checkout);
 	
 	const [orderName, setOrderName] = useState('');
@@ -19,6 +20,17 @@ const Checkout = () => {
 	const [isFormValidTel, setIsFormValidTel] = useState(0)
 	const [isFormValidMail, setIsFormValidMail] = useState(0)
 	
+	const [isVisible, setIsVisible] = useState(false);
+	
+	const handelClickOrder = () => {
+		toggleVisibility();
+	}
+	const toggleVisibility = () => {
+		setIsVisible(!isVisible);
+		setTimeout(() => {
+			setIsVisible(false);
+		}, 1000);
+	};
 	const handleBlurName = () => {
 		validateFormName();
 	};
@@ -95,54 +107,55 @@ const Checkout = () => {
 				<p className={`${isFormValidName === true ? 'valid-message' : isFormValidName === false ? 'invalid-message' : 'third-message'}`}>
 				{isFormValidName === true ? '✔️' : isFormValidName === false ? '❌' : ''}
 				</p>
-			{orderNameError ? (
-				<p className="invalid-message">{orderNameError} &nbsp; </p>
-			) : (
-				<p className="valid-message">&nbsp;</p>
-			)}
-			</div>
-			
-			<div className='form-div'>
-			
-			<label> Telefonnummer </label>
-			<input type="tel" value={orderPhone} onBlur={handleBlurPhone} onChange={(e) => {
-				setOrderPhone(e.target.value);
-			}} 
-			/>
-			<p className={`${isFormValidTel === true ? 'valid-message' : isFormValidTel === false ? 'invalid-message' : 'third-message'}`}>
-			{isFormValidTel === true ? '✔️' : isFormValidTel === false ? '❌' : ''}
-			</p>
-
-			{orderPhoneError ? (
-				<p className="invalid-message">{orderPhoneError} &nbsp; </p>
-			) : (
-				<p className="valid-message">&nbsp;</p>
-			)}
-
-			</div>
-			<div className='form-div'>
-			
-			<label> Mejl </label>
-			<input type="text" value={orderEmail} onBlur={handleBlurEmail} onChange={(e) => {
-				setOrderEmail(e.target.value);
-			}} 
-			/>
-			
-			<p className={`${isFormValidMail === true ? 'valid-message' : isFormValidMail === false ? 'invalid-message' : 'third-message'}`}>
-			{isFormValidMail === true ? '✔️' : isFormValidMail=== false ? '❌' : ''}
-			</p>
-			{orderEmailError ? (
-				<p className="invalid-message">{orderEmailError} &nbsp; </p>
-			) : (
-				<p className="valid-message">&nbsp;</p>
-			)}
-			</div>
-			</div>
-			<button>Beställ</button>
-			</section>
-			</div>
-			</main>
-		);
-	};
-	
-	export default Checkout;
+				{orderNameError ? (
+					<p className="invalid-message">{orderNameError} &nbsp; </p>
+				) : (
+					<p className="valid-message">&nbsp;</p>
+				)}
+				</div>
+				
+				<div className='form-div'>
+				
+				<label> Telefonnummer </label>
+				<input type="tel" value={orderPhone} onBlur={handleBlurPhone} onChange={(e) => {
+					setOrderPhone(e.target.value);
+				}} 
+				/>
+				<p className={`${isFormValidTel === true ? 'valid-message' : isFormValidTel === false ? 'invalid-message' : 'third-message'}`}>
+				{isFormValidTel === true ? '✔️' : isFormValidTel === false ? '❌' : ''}
+				</p>
+				
+				{orderPhoneError ? (
+					<p className="invalid-message">{orderPhoneError} &nbsp; </p>
+				) : (
+					<p className="valid-message">&nbsp;</p>
+				)}
+				
+				</div>
+				<div className='form-div'>
+				
+				<label> Mejl </label>
+				<input type="text" value={orderEmail} onBlur={handleBlurEmail} onChange={(e) => {
+					setOrderEmail(e.target.value);
+				}} 
+				/>
+				
+				<p className={`${isFormValidMail === true ? 'valid-message' : isFormValidMail === false ? 'invalid-message' : 'third-message'}`}>
+				{isFormValidMail === true ? '✔️' : isFormValidMail=== false ? '❌' : ''}
+				</p>
+				{orderEmailError ? (
+					<p className="invalid-message">{orderEmailError} &nbsp; </p>
+				) : (
+					<p className="valid-message">&nbsp;</p>
+				)}
+				</div>
+				</div>
+				<button onClick={handelClickOrder}>Beställ</button>
+					{isVisible &&< PopupTillBeställt />}
+				</section>
+				</div>
+				</main>
+			);
+		};
+		
+		export default Checkout;

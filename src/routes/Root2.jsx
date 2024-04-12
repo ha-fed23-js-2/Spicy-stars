@@ -5,6 +5,7 @@ import "../css/login.css";
 import "../css/Checkout.css";
 import "../css/MenyEmployee.css";
 import "../css/validering.css"
+import "../css/popup.css"
 // <NavLink to="/"> Meny </NavLink>
 import profil from "../data/login-icon.png"
 

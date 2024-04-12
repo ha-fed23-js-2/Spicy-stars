@@ -1,16 +1,20 @@
-import { useEffect } from "react";
+import { useEffect , useState} from "react";
 import PepparPicture from "../components/pepparimage";
 import cart from "../data/kundvagn.png"
 import { useVariablesStore } from "../data/store";
 import { loadFromApi } from "../data/api";
 import { NavLink } from "react-router-dom";
-
+import PopupTillMat from "./PopupTillmat";
 
 const RenderMenyPage = () => {
   const {menuFood, setMenuFood , addToCheckout} = useVariablesStore (state => ({menuFood: state.MenuFood, setMenuFood: state.setMenuFood, addToCheckout:state.addToCheckout}))
-	
+  const [isVisible, setIsVisible] = useState(false);
+  const [selectedFood, setSelectedFood] = useState(null);
+
   const handleAddToCheckout = (item) => {
 	addToCheckout(item);
+	setSelectedFood(item);
+	toggleVisibility();
 	};
 
   useEffect (() => {
@@ -28,6 +32,16 @@ const RenderMenyPage = () => {
     }
     return peppers;
   };
+	
+  
+
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+	setTimeout(() => {
+		setIsVisible(false);
+	  }, 1000);
+  };
+  
 
 
   return (
@@ -35,8 +49,10 @@ const RenderMenyPage = () => {
     <main className="main-meny">
       <h2>MENY</h2>
       <NavLink to="/Checkout" className="nav-link-style"> <img src={cart} alt="kundvagnen" className="cart"/>
+      
+	
 	</NavLink> 
-
+	 {isVisible && <PopupTillMat selectedFood={selectedFood} setSelectedFood={setSelectedFood}/>} 
       <section className="menyFoodDiv">
         {menuFood.map((mat, index) => (
           <div key={index} className="meny-container">
