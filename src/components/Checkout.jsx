@@ -27,17 +27,24 @@ const Checkout = () => {
 	const [isVisible, setIsVisible] = useState(false);
 	
 	const handelClickOrder = () => {
-		clearLocalStorage()
-		toggleVisibility();
-		
-	}
+		validateFormName();
+        validateFormTel();
+        validateFormEmail();
+	if (isFormValidName && isFormValidTel && isFormValidMail && isValidEmail(orderEmail)) {
+        clearLocalStorage();
+        toggleVisibility();
+    }
+}
+
 
 	const toggleVisibility = () => {
+		if (isFormValidName && isFormValidTel && isFormValidMail && isValidEmail(orderEmail)) {
 		setIsVisible(!isVisible);
 		setTimeout(() => {
 			setIsVisible(false);
 		}, 1000);
 	};
+}
 	const handleBlurName = () => {
 		validateFormName();
 	};
@@ -58,7 +65,7 @@ const Checkout = () => {
 			setIsFormValidName(true)
 		}}
 		let isValidEmail = (email) => {
-			return email.length > 0 && email.includes('@');
+			return email.length > 3 && email.includes('@');
 		};
 		const validateFormEmail = () => {
 
@@ -70,6 +77,7 @@ const Checkout = () => {
 				setOrderEmailError('');
 				setIsFormValidMail(true)
 			}}
+
 		const validateFormTel = () => {
     	const phoneNumber = orderPhone.replace(/[^0-9]/g, ''); 
    		    if (phoneNumber === '' || phoneNumber.length < 10) { 
@@ -80,6 +88,8 @@ const Checkout = () => {
                  setIsFormValidTel(true);
     }
 }
+	
+
 			
 			return (
 				<main className='main-checkout'>
@@ -125,6 +135,7 @@ const Checkout = () => {
 					setOrderPhone(e.target.value);
 				}} 
 				/>
+
 				<p className={`${isFormValidTel === true ? 'valid-message' : isFormValidTel === false ? 'invalid-message' : 'third-message'}`}>
 				{isFormValidTel === true ? '✔️' : isFormValidTel === false ? '❌' : ''}
 				</p>
@@ -154,12 +165,13 @@ const Checkout = () => {
 				)}
 				</div>
 				</div>
-				<button onClick={handelClickOrder} disabled={isFormValidName === 0 || isFormValidTel === 0 || isFormValidMail === 0 || !isValidEmail(orderEmail)}>Beställ</button>
+				<button onClick={handelClickOrder} disabled={!isFormValidName || !isFormValidTel || !isFormValidMail || !isValidEmail(orderEmail) }>Beställ</button>
 					{isVisible &&< PopupTillBeställt />}
 				</section>
 				</div>
 				</main>
 			);
 		};
+
 		
-		export default Checkout;
+		export default Checkout
