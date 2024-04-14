@@ -9,7 +9,7 @@ const AddFood = ({ id, name, ingredients, description, strength, type, price, im
 		description: description || '', 
 		ingredients: ingredients || '', 
 		price: price || '', 
-		strength: strength || '', 
+		strength: strength || '',
 		type: type || '', 
 		image: image || '', 
 		id: MenuFood.length +1 
@@ -25,16 +25,17 @@ const AddFood = ({ id, name, ingredients, description, strength, type, price, im
         type: '',
         image: ''
     });
-
-    
-    const handleInputChange = (event) => {
+	
+	const handleInputChange = (event) => {
         const { name, value } = event.target;
+		const inputForNumbers = name === "price" || name === "strength" ? value.replace(/[^0-9]/,'') : value;
         setFoodAdd(prevState => ({
             ...prevState,
-            [name]: value
+            [name]: inputForNumbers
         }));
 
     }
+
     const handleBlurChange = (event) => {
         const { name, value } = event.target;
         setIsShown(false)

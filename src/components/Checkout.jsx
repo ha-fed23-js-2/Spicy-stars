@@ -70,20 +70,16 @@ const Checkout = () => {
 				setOrderEmailError('');
 				setIsFormValidMail(true)
 			}}
-			const validateFormTel = () => {
-				
-				
-				
-				if (orderPhone === '') {
-					setOrderPhoneError('Felaktigt mobilnummer');
-					setIsFormValidTel(false)
-				} else {
-					setOrderPhoneError('');
-					setIsFormValidTel(true)
-				}
-				
-			
-			}
+		const validateFormTel = () => {
+    	const phoneNumber = orderPhone.replace(/[^0-9]/g, ''); 
+   		    if (phoneNumber === '' || phoneNumber.length < 10) { 
+                 setOrderPhoneError('Felaktigt mobilnummer');
+                 setIsFormValidTel(false);
+            } else {
+                 setOrderPhoneError('');
+                 setIsFormValidTel(true);
+    }
+}
 			
 			return (
 				<main className='main-checkout'>
