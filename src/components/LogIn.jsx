@@ -62,6 +62,12 @@ if (LoggedIn){
 }
   }
 
+  const handleEnter = (event) => {
+    if (event.key === 'Enter' && isFormValid()){
+      handleLogIn();
+    }
+  }
+
 
   return (
     <main className="form">
@@ -71,6 +77,7 @@ if (LoggedIn){
           value={email}
           onChange={(event) => setEmail(event.target.value)}
           onBlur={() => setEmailError(true)}
+          onKeyUp={handleEnter}
           type="text"
         />
         {emailError && <span className="error-msg">{emailError} </span>}
@@ -82,6 +89,7 @@ if (LoggedIn){
           value={password}
           onChange={(event) => setPassword(event.target.value)}
           onBlur={() => setPasswordError(true)}
+          onKeyUp={handleEnter}
           type="password"
         />
         {passwordError && <span className="error-msg">{passwordError} </span>}

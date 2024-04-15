@@ -1,6 +1,6 @@
 import framsidabild from "../data/framsidabild.png";
 import { NavLink } from "react-router-dom"
-import { saveOriginalToApi } from "../data/api";
+
 
 
 const RenderStartPage = () => {
@@ -17,9 +17,11 @@ const RenderStartPage = () => {
               en spännande meny som lockar de modiga smakäventyrarna.
             </p>
           </div>
-          <p className="phone">Tele: 0202-020202 </p>
+          <p className="open-info">Öppettider:</p> 
+          <p className="open-info">Måndag till söndag 10.00 - 23.00</p>
+
           <button className="meny-btn"><NavLink to="/meny" className="nav-link-style"> Meny </NavLink> </button>
-          <button onClick={saveOriginalToApi}>Spara Orginal till API</button>
+         
         </div>
       </main>
      

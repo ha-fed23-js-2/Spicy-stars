@@ -178,31 +178,24 @@ main {
   .form-div {
     grid-template-columns: 230px 20px;
   }
-  .form-div > input  {
+  .form-div > input , .Form-checkout-add > input {
     width: 15em;
   }
   .Form-section, .checkout-section {
     padding: 0.5em;
   }
   .icon-arrow {
-    top: 14%;
+    top: 11%;
     left: 45%;
   }
   .checkout-card {
-    padding: 0.5em;
-    margin: 0em;
+    padding: 0.7em;
+    margin: 0.2em;
   }
   .Form-checkout{
     padding: 1em;
   }
-  /* .Form-food {
-	padding: 0.5em;
-  }
-  .Form-food > button {
-	margin: 0em;
-  }
-   */
-  
+ 
 }
 @media screen and (min-width: 900px) {
   .cart {

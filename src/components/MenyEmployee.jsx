@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import PepparPicture from "../components/pepparimage";
 import { saveToApi } from "../data/api.js";
+import { saveOriginalToApi } from "../data/api"
 import {useVariablesStore} from "../data/store.js"
 import HandleDeleteBtn  from "./ButtonFunction";
 import HandleChange from "./ChangeButton.jsx";
@@ -54,11 +55,15 @@ const MenyEmployee = () => {
             </div>
           ))}
         </section>
-        <button className="add-food-btn" onClick={addFoodClick}>Lägg till ny maträtt</button>
        
+        <button className="add-food-btn" onClick={addFoodClick}>Lägg till ny maträtt</button>
 		{showAddFood && <AddFood />}
+
         
       </div>
+		  <div className="save-to-api-container">
+    <button className="save-to-api" onClick={saveOriginalToApi}>Spara Orginal till API</button>
+  </div>
     </main>
   );
 };

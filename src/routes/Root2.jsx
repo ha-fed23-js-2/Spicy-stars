@@ -16,9 +16,10 @@ const Root = () => (
     </header>
     <Outlet />
     <footer>
-      <p>Mejl: Spicy.Stars@gmail.se</p>
+      <p>Mejl: Spicy@gmail.se</p>
 	  <NavLink to="/login" className="nav-link-style" > <img src={profil} alt="profilbild" className="profilsize"/><p className="logIn">Logga in</p>
 	  </NavLink> 
+	  <p className="phone">Tele: 0200-02020256 </p>
     </footer>
   </>
 );
