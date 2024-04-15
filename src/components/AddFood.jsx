@@ -56,7 +56,7 @@ const AddFood = ({ id, name, ingredients, description, strength, type, price, im
                 break;
 
                 case 'price':
-                 error = value.trim() === ''? 'Priset är obligatorisk' : '' ;
+                 error = value.trim() === ''? 'Kräver siffer format' : '' ;
                 break;
 
                 case 'strength':
@@ -122,7 +122,7 @@ const AddFood = ({ id, name, ingredients, description, strength, type, price, im
             <input type="text" name="price" value={foodAdd.price} onChange={handleInputChange}onBlur={handleBlurChange} />
             <p className={errors.price ? 'error' : 'shown'}>{errors.price ? errors.price : 'Placeholder text'}</p>
 
-            <label> Styrka </label>
+            <label> Styrka ( 1-5 ) </label>
             <input type="text" name="strength" value={foodAdd.strength} onChange={handleInputChange} onBlur={handleBlurChange} />
             <p className={errors.strength ? 'error' : 'shown'}>{errors.strength ? errors.strength : 'Placeholder text'}</p>
 

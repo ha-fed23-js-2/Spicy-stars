@@ -120,7 +120,7 @@ const HandleChange = ({id, name, ingredients, description, strength, type, price
                     <label>Pris</label>
                     <input type="text" name="price" value={formValues.price} onChange={handleChange} onBlur={handleBlurChangeInChange} />
                     <p className={errors.price ? 'error' : 'shown'}>{errors.price ? errors.price : 'Placeholder text'}</p>
-                    <label>Styrka</label>
+                    <label>Styrka (1-5)</label> 
                     <input type="text" name="strength" value={formValues.strength} onChange={handleChange} onBlur={handleBlurChangeInChange} />
                     <p className={errors.strength ? 'error' : 'shown'}>{errors.strength ? errors.strength : 'Placeholder text'}</p>
                     <label>Typ</label>
@@ -129,7 +129,7 @@ const HandleChange = ({id, name, ingredients, description, strength, type, price
                     <label>Bildlänk</label>
                     <input type="text" name="image" value={formValues.image} onChange={handleChange} onBlur={handleBlurChangeInChange}/>
                     <p className={errors.image ? 'error' : 'shown'}>{errors.image ? errors.image : 'Placeholder text'}</p>
-                    <button onClick={handleChangeClick} disabled= {!formValues.name} >Spara</button>
+                    <button onClick={handleChangeClick} disabled= {!formValues.name || !formValues.image || !formValues.description || !formValues.ingredients || !formValues.strength || !formValues.type || !formValues.price} >Spara</button>
                    
                 </div>
             )}

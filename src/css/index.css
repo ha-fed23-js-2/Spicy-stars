@@ -91,6 +91,9 @@ footer > img {
 	top: 55px ;
 	left: 10%;
 }
+.logIn {
+  margin: 0;
+}
 
 
 
@@ -98,6 +101,7 @@ footer > img {
 	.info-resturant > p{
 		width: 542px;
 	  }
+
 }
 
 @media screen and (min-width: 900px) {
@@ -118,3 +122,4 @@ footer > img {
       left: 20%;
     }
   }
+

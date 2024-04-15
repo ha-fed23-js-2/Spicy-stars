@@ -17,7 +17,7 @@ const Root = () => (
     <Outlet />
     <footer>
       <p>Mejl: Spicy.Stars@gmail.se</p>
-	  <NavLink to="/login"> <img src={profil} alt="profilbild" className="profilsize"/>
+	  <NavLink to="/login" className="nav-link-style" > <img src={profil} alt="profilbild" className="profilsize"/><p className="logIn">Logga in</p>
 	  </NavLink> 
     </footer>
   </>

@@ -10,8 +10,8 @@ main {
 .cart{
 	height: 50px;
 	position: absolute;
-	top: 15px ;
-	right: 15px;
+	top: 0.3% ;
+	right: 6%;
 }
 body {
   align-items: center;
@@ -108,5 +108,13 @@ p {
 	display: grid;
 	place-items: center;
 	
+  }
+}
+@media screen and (max-width: 400px){
+	.pris-meny{
+		font-size: 13px
+	}
+  .add-btn {
+    width: 5em;
   }
 }

@@ -39,7 +39,7 @@ const RenderMenyPage = () => {
     setIsVisible(!isVisible);
 	setTimeout(() => {
 		setIsVisible(false);
-	  }, 1000);
+	  }, 1200);
   };
   
 
@@ -68,7 +68,7 @@ const RenderMenyPage = () => {
               {generatePeppers(mat.strength)}
             </div>
             <div className="Price-btn">
-              <p>Pris: {mat.price}Kr</p>
+              <p className="pris-meny">Pris: {mat.price}Kr</p>
 			  <button className="add-btn" onClick={() => handleAddToCheckout(mat)}> Lägg till</button>
             </div>
           </div>

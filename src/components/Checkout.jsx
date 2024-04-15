@@ -80,7 +80,7 @@ const Checkout = () => {
 			}}
 
 		const validateFormTel = () => {
-    	const phoneNumber = orderPhone.replace(/[^0-9]/g, ''); 
+    	const phoneNumber = orderPhone.replace(/[^0-9.-]/g, ''); 
    		    if (phoneNumber === '' || phoneNumber.length < 10) { 
                  setOrderPhoneError('Felaktigt mobilnummer');
                  setIsFormValidTel(false);
@@ -106,7 +106,11 @@ const Checkout = () => {
 					<button className='remove-btn' onClick={() => removeFromCheckout(item.id)}>Ta bort</button>
 					</div>
 				))}
-				<p>Summa: {CheckoutTotal} KR</p>
+				{Checkout.length === 0 ? (
+					<p className='inget-kundvagn'>Inget i varukorgen</p>
+				) : 
+				(<p>Summa: {CheckoutTotal} KR</p>)
+			}
 				</section>
 				<section className="Form-section">
 				<div className="Form-checkout">
