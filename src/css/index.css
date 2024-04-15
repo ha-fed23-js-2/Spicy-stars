@@ -80,6 +80,18 @@ footer > img {
   font-family: "Julius Sans One", sans-serif;
   font-size: 14px;
 }
+.icon{
+  width: 40px;
+  margin-left: auto;
+
+}
+.icon-arrow {
+  height: 35px;
+	position: absolute;
+	top: 55px ;
+	left: 10%;
+}
+
 
 
 @media screen and (min-width: 600px){
@@ -102,5 +114,7 @@ footer > img {
 		display: grid;
 		place-items: center;
 	  }
-	  
+	  .icon-arrow {
+      left: 20%;
+    }
   }

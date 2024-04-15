@@ -11,7 +11,8 @@ const MenyEmployee = () => {
   const {menuFood, showAddFood, setShowAddFood} = useVariablesStore(state => ({menuFood: state.MenuFood, showAddFood: state.showAddFood, setShowAddFood: state.setShowAddFood}))
   const generatePeppers = (strength) => {
     const peppers = [];
-    for (let i = 0; i < strength; i++) {
+    const maxPeppar = Math.min(strength,5);
+    for (let i = 0; i < maxPeppar; i++) {
       peppers.push(<PepparPicture key={i} />);
     }
     return peppers;
@@ -41,10 +42,11 @@ const MenyEmployee = () => {
                 <p>Ingredienser: {mat.ingredients}</p>
               </div>
               <div className="strength-section">
+                
               {generatePeppers(mat.strength)}
+                <p className="pris">Pris: {mat.price}Kr</p>
               </div>
               <div className="Price-btn">
-                <p>Pris: {mat.price}Kr</p>
                 <HandleChange id={mat.id} name={mat.name} ingredients={mat.ingredients} description={mat.description} strength={mat.strength} type={mat.type} price={mat.price} image={mat.image}/> 
                
                 <HandleDeleteBtn id={mat.id} />

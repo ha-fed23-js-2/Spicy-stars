@@ -24,8 +24,8 @@
   width: 7em;
   height: 2em;
   position: absolute;
-  top: 1em;
-  right: 1em;
+  top: 2%;
+  right: 10%;
   border-radius: 1em;
 }
 .layout-employee {
@@ -47,4 +47,23 @@
 }
 .change-btnAlt {
   visibility: hidden;
+}
+.strength-section{
+  /* display: grid; 
+  flex-direction: row;
+  grid-template-columns: 1px 100px ;  */
+  margin: 0.5em 0 0 0em;
+}
+.pris {
+  margin: 0;
+  margin-left:  0.9em;
+}
+
+@media screen and (max-width: 400px){
+  .food-picture {
+    width: 100px;
+  }
+  .pris {
+    font-size: 12px;
+  }
 }

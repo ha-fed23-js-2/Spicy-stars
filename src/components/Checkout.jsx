@@ -2,7 +2,8 @@ import React from 'react';
 import { useVariablesStore } from '../data/store.js';
 import { useState, useEffect } from 'react';
 import PopupTillBeställt from './PopupTillBeställt.jsx';
-
+import backIcon from "../data/back..png"
+import { NavLink } from 'react-router-dom';
 
 const Checkout = () => {
 	const { Checkout, CheckoutTotal, removeFromCheckout, clearLocalStorage } = useVariablesStore(); 
@@ -93,6 +94,7 @@ const Checkout = () => {
 			
 			return (
 				<main className='main-checkout'>
+				 <NavLink to="/meny" className="nav-link-style"> <img src={backIcon} alt="bakåtpil" className='icon-arrow' /> </NavLink>
 				<div className="checkout">
 				<section className="checkout-section">
 				{Checkout && Checkout.map((item) => (

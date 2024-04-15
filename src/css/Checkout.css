@@ -103,7 +103,6 @@ main {
 	padding: 2em;
 	border: solid 1px var(--text-color);
 	background-color: #3a3737;
-	/* Centrera vertikalt och horisontellt */
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -170,4 +169,27 @@ main {
   }
   
 
+}
+@media screen and (max-width: 480px) {
+ 
+  .form-div {
+    grid-template-columns: 230px 20px;
+  }
+  .form-div > input  {
+    width: 15em;
+  }
+  .Form-section, .checkout-section {
+    padding: 0.5em;
+  }
+  .icon-arrow {
+    top: 14%;
+    left: 45%;
+  }
+  .checkout-card {
+    padding: 0.5em;
+    margin: 0em;
+  }
+  .Form-checkout{
+    padding: 1em;
+  }
 }
