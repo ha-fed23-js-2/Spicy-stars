@@ -1,8 +1,6 @@
 
 import React from 'react'
 import { useVariablesStore } from '../data/store'
-import { useEffect } from 'react'
-import { saveToApi } from '../data/api'
 
 
 

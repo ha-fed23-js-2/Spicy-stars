@@ -9,7 +9,6 @@ main {
 .checkout {
   display: grid;
   grid-template-rows: 2fr 1fr;
-  /* padding: 0.6em; */
   place-items: center;
   margin-top: 3em;
  
@@ -74,8 +73,6 @@ main {
 .Form-checkout {
   display: flex;
   flex-direction: column;
-  /* display: flex;
-  flex-direction: column; */
   border-radius: 0.4em;
   padding: 2em;
   border: solid 1px var(--text-color);
@@ -91,9 +88,7 @@ main {
 .form-div > label {
   grid-column: span 2;
 }
-/* .form-div > p {
-  height: 1.5em;
-} */
+
 
 .Form-food {
 	display: flex;
@@ -126,7 +121,7 @@ main {
   margin-bottom: 1em;
   display: grid;
   grid-template-columns: 1fr;
-  /* display: none; */
+  
   
 }
 
@@ -166,9 +161,7 @@ main {
   }
   .Form-section{
 	margin: 0em;
-	/* display: grid;
-	place-items: center; */
-	/* height: 25em; */
+	
   }
   
 

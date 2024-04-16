@@ -49,9 +49,6 @@
   visibility: hidden;
 }
 .strength-section{
-  /* display: grid; 
-  flex-direction: row;
-  grid-template-columns: 1px 100px ;  */
   margin: 0.5em 0 0 0em;
 }
 .pris {

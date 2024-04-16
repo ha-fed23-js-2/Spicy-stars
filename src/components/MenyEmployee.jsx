@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import PepparPicture from "../components/pepparimage";
-import { saveToApi } from "../data/api.js";
 import { saveOriginalToApi } from "../data/api"
 import {useVariablesStore} from "../data/store.js"
 import HandleDeleteBtn  from "./ButtonFunction";

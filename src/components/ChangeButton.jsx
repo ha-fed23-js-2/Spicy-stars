@@ -1,7 +1,6 @@
 import { useVariablesStore } from "../data/store"
 import { useState, useEffect } from "react"
 import "../css/MenyEmployee.css";
-import { saveToApi } from "../data/api";
 import cross from "../data/cross-icon.png"
 
 
@@ -18,10 +17,6 @@ const HandleChange = ({id, name, ingredients, description, strength, type, price
     });
     const [isShown, setIsShown] = useState(true)
  
-      const {menuFood} = useVariablesStore (state => ({menuFood: state.MenuFood, }))
-
- 
-
 
     const [showForm, setShowForm] = useState(false);
 	const [showButton, setShowButton] = useState(false);
