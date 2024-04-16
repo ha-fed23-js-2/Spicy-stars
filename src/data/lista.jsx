@@ -10,7 +10,7 @@ const Menu = [
     type: "kyckling",
     price: "109",
     image:
-      "https://cdn2.cdnme.se/1610674/8-3/chicken-vindaloo-curry-kyckling-indisk-mat-middag-tips_5fd7011d9606ee0ecc3ac546.jpg",
+      "https://villaggioevl.com/wp-content/uploads/2014/05/Menuitem-Buratta-568x602.jpg",
     id: "1",
   },
   {
