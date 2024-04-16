@@ -1,5 +1,6 @@
 import framsidabild from "../data/framsidabild.png";
 import { NavLink } from "react-router-dom"
+import profil from "../data/login-icon.png"
 
 
 
@@ -24,6 +25,12 @@ const RenderStartPage = () => {
          
         </div>
       </main>
+	  <footer>
+      <p>Mejl: Spicy@gmail.se</p>
+	  <NavLink to="/login" className="nav-link-style" > <img src={profil} alt="profilbild" className="profilsize"/><p className="logIn">Logga in</p>
+	  </NavLink> 
+	  <p className="phone">Tele: 0200-02020256 </p>
+    </footer>
      
     </>
   );

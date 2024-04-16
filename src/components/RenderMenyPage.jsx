@@ -5,6 +5,7 @@ import { useVariablesStore } from "../data/store";
 import { loadFromApi } from "../data/api";
 import { NavLink } from "react-router-dom";
 import PopupTillMat from "./PopupTillmat";
+import profil from "../data/login-icon.png"
 
 const RenderMenyPage = () => {
   const {menuFood, setMenuFood , addToCheckout} = useVariablesStore (state => ({menuFood: state.MenuFood, setMenuFood: state.setMenuFood, addToCheckout:state.addToCheckout}))
@@ -45,7 +46,7 @@ const RenderMenyPage = () => {
 
 
   return (
-
+	<>
     <main className="main-meny">
       <h2>MENY</h2>
       <NavLink to="/Checkout" className="nav-link-style"> <img src={cart} alt="kundvagnen" className="cart"/>
@@ -75,6 +76,13 @@ const RenderMenyPage = () => {
         ))}
       </section>
     </main>
+	 <footer>
+	 <p>Mejl: Spicy@gmail.se</p>
+	 <NavLink to="/login" className="nav-link-style" > <img src={profil} alt="profilbild" className="profilsize"/><p className="logIn">Logga in</p>
+	 </NavLink> 
+	 <p className="phone">Tele: 0200-02020256 </p>
+   </footer>
+   </>
   );}
 
   export default RenderMenyPage 

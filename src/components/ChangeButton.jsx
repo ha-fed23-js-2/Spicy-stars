@@ -1,5 +1,5 @@
 import { useVariablesStore } from "../data/store"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import "../css/MenyEmployee.css";
 import cross from "../data/cross-icon.png"
 

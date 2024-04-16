@@ -87,12 +87,12 @@ p {
   place-self: center;
 }
 .save-to-api-container {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+  margin-bottom: 0em;
 }
 .save-to-api {
-  position: absolute;
-  bottom: -5em;
-  right: 0.4em;
   background-color: var(--text-color);
   padding: 0.4em;
   border-radius: 1em;

@@ -23,6 +23,9 @@ h1 {
 body {
   background-color: #3a3737;
 }
+button {
+	text-decoration: none;
+}
 .startpage-flexcontainer {
   display: grid;
   place-items: center;

@@ -6,6 +6,7 @@ import {useVariablesStore} from "../data/store.js"
 import HandleDeleteBtn  from "./ButtonFunction";
 import HandleChange from "./ChangeButton.jsx";
 import AddFood from "./AddFood.jsx";
+
 const MenyEmployee = () => {
 
   const {menuFood, showAddFood, setShowAddFood} = useVariablesStore(state => ({menuFood: state.MenuFood, showAddFood: state.showAddFood, setShowAddFood: state.setShowAddFood}))
@@ -24,6 +25,7 @@ const MenyEmployee = () => {
   };
 
   return (
+	<>
     <main className="main-employee">
      <button className="logout-btn"><NavLink to="/meny" className="nav-link-style"> Logga ut </NavLink></button>
     
@@ -64,6 +66,11 @@ const MenyEmployee = () => {
     <button className="save-to-api" onClick={saveOriginalToApi}>Spara Orginal till API</button>
   </div>
     </main>
+	<footer>
+      <p>Mejl: Spicy@gmail.se</p>
+	  <p className="phone">Tele: 0200-02020256 </p>
+    </footer>
+	</>
   );
 };
 export default MenyEmployee;

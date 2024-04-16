@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import PopupTillBeställt from './PopupTillBeställt.jsx';
 import backIcon from "../data/back..png"
 import { NavLink } from 'react-router-dom';
+import profil from "../data/login-icon.png"
 
 const Checkout = () => {
 	const { Checkout, CheckoutTotal, removeFromCheckout, clearLocalStorage } = useVariablesStore(); 
@@ -93,7 +94,8 @@ const Checkout = () => {
 
 			
 			return (
-				<main className='main-checkout'>
+				<>
+								<main className='main-checkout'>
 				 <NavLink to="/meny" className="nav-link-style"> <img src={backIcon} alt="bakåtpil" className='icon-arrow' /> </NavLink>
 				<div className="checkout">
 				<section className="checkout-section">
@@ -176,6 +178,13 @@ const Checkout = () => {
 				</section>
 				</div>
 				</main>
+				<footer>
+      			<p>Mejl: Spicy@gmail.se</p>
+	 			 <NavLink to="/login" className="nav-link-style" > <img src={profil} alt="profilbild" className="profilsize"/><p className="logIn">Logga in</p>
+	 			 </NavLink> 
+	 			 <p className="phone">Tele: 0200-02020256 </p>
+   				 </footer>
+				</>
 			);
 		};
 
